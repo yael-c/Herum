@@ -1,0 +1,5 @@
+node_modules
+graphQLExample
+.angular
+__MACOSX/*
+.idea/

@@ -85,7 +85,7 @@ import {NoopInterceptor} from "./interceptors/noop";
     HomepageModule
   ],
   providers: [
-
+      { provide: HTTP_INTERCEPTORS, useClass: NoopInterceptor, multi: true },
 ],
   schemas: [NO_ERRORS_SCHEMA],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
 export type SignInData = {
-  armyId: string;
-  id: string;
+  PersonalId: string;
+  MilitaryId: string;
 };

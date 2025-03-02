@@ -1,8 +1,8 @@
 export type SignUpData = {
-  armyId: string;
-  firstName: string;
-  id: string;
-  lastName: string;
-  referrer: string;
-  userType: string;
+    MilitaryId: string;
+    firstName: string;
+    PersonalId: string;
+    lastName: string;
+    ReferringUser: string;
+    userType: string;
 };

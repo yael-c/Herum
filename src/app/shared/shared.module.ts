@@ -49,6 +49,7 @@ import { LabelsWithIconsListComponent } from './molecules/labels-with-icons-list
 import { HerumUserProgressComponent } from './molecules/herum-user-progress/herum-user-progress.component';
 import { AudioPlayerComponent } from './organisms/audio-player/audio-player.component';
 import { TimeFormatPipe } from './organisms/audio-player/time-format.pipe';
+import { ErrorInfoComponent } from './atoms/error-info/error-info.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { TimeFormatPipe } from './organisms/audio-player/time-format.pipe';
     LabelsWithIconsListComponent,
     HerumUserProgressComponent,
     AudioPlayerComponent,
-    TimeFormatPipe
+    TimeFormatPipe,
+    ErrorInfoComponent
   ],
   exports:[
     HerumPdfViewerComponent,
@@ -114,6 +116,7 @@ import { TimeFormatPipe } from './organisms/audio-player/time-format.pipe';
     KeyValueListComponent,
     LabelsWithIconsListComponent,
     HerumUserProgressComponent,
+    ErrorInfoComponent,
   ],
   imports: [
     CommonModule,

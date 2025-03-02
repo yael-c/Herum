@@ -1,0 +1,8 @@
+<ng-container *ngIf="touched && errors!==null">
+    <span *ngIf="errors['required']">
+        שדה חובה
+    </span>
+    <span *ngIf="errors['pattern']">
+        שדה לא תקין
+    </span>
+</ng-container>

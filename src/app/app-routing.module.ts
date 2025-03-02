@@ -20,11 +20,12 @@ const routes: Routes = [
   {
     path: 'homepage',
     component: HomeLayoutComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'feed',
     component: FeedLayoutComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'sign-in',
@@ -33,6 +34,7 @@ const routes: Routes = [
   {
     path: 'style-guid',
     component: StyleGuidComponent,
+    canActivate: [AuthGuard],
   },
   { path: '**', component: AppComponent },
 ];

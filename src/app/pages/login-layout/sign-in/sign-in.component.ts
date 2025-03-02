@@ -1,6 +1,8 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {SignInData} from 'src/app/models/Internal/SignInData';
+import {AuthService} from "../../../shared/services/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'sign-in',
@@ -8,22 +10,38 @@ import {SignInData} from 'src/app/models/Internal/SignInData';
     styleUrls: ['./sign-in.component.scss', '../../../../app/shared/styles/forms.scss']
 })
 export class SignInComponent implements OnInit {
-    loginForm!: FormGroup;
-    @Output() onSignIn = new EventEmitter<SignInData>();
+    loginForm = this.fb.group({
+        PersonalId: ['', [Validators.required, Validators.pattern(/^\d{9}$/)]],
+        MilitaryId: ['', [Validators.required, Validators.pattern(/^\d{6,}$/)]],
+    });    @Output() onSignIn = new EventEmitter<SignInData>();
 
-    constructor(private fb: FormBuilder) {}
+    constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) {}
 
     ngOnInit() {
-        this.loginForm = this.fb.group({
-            id: ['', [Validators.required, Validators.pattern(/^\d{9}$/)]],
-            armyId: ['', [Validators.required, Validators.pattern(/^\d{6,}$/)]],
-        });
+        if (this.authService.isAuthenticated()) {
+            this.goToHomePage();
+        }
     }
 
     _onSubmit() {
+        this.loginForm.markAllAsTouched();
         if (this.loginForm.valid) {
-            console.log(this.loginForm.value)
+            const formData = this.loginForm.value;
+            console.log(formData)
+            this.authService.login(formData).subscribe({
+                next: () => {
+                    this.onSignIn.emit(formData as any);
+                    this.goToHomePage();
+                },
+                error: (error) => {
+                    console.error('Login failed', error);
+                }
+            });
         }
-        this.onSignIn.emit(this.loginForm.value);
+        this.onSignIn.emit(this.loginForm.value as any);
+    }
+
+    goToHomePage() {
+        this.router.navigate(['/homepage']);
     }
 }

@@ -1,8 +1,8 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, Validators} from '@angular/forms';
 import {SignInData} from 'src/app/models/Internal/SignInData';
-import {AuthService} from "../../../shared/services/auth.service";
-import {Router} from "@angular/router";
+import {AuthService} from '../../../shared/services/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'sign-in',

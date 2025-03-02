@@ -1,7 +1,8 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {SignUpData} from 'src/app/models/Internal/SignUpData';
-import {HttpClient} from "@angular/common/http";
+import {Router} from '@angular/router';
+import {AuthService} from '../../../shared/services/auth.service';
 
 @Component({
     selector: 'sign-up',
@@ -35,10 +36,7 @@ export class SignUpComponent {
 
     selectedOption: string = '';
 
-    constructor(private fb: FormBuilder,private http: HttpClient) {
-    }
-
-    ngOnInit() {
+    constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) {
     }
 
     updateUserType(x: any) {
@@ -53,18 +51,22 @@ export class SignUpComponent {
         if (this.signUpForm.valid) {
             const formData = this.signUpForm.value;
             console.log(formData)
-            this.http.post('/api/login/create', formData).subscribe({
+            this.authService.signUp(formData).subscribe({
                 next: (response) => {
                     console.log('sign up successful', response);
                     this.onSignUp.emit(formData as any);
+                    this.goToHomePage();
                 },
                 error: (error) => {
-                    console.error('sign up failed', error);
+                    console.error('Sign-up failed', error);
                 }
             });
         }
         console.log(this.signUpForm.value)
-        console.log("after")
         this.onSignUp.emit(this.signUpForm.value as any);
+    }
+
+    goToHomePage() {
+        this.router.navigate(['/homepage']);
     }
 }

@@ -21,10 +21,11 @@ export const usersExample: User[] = [
     note: 'הערה 1',
     referringUser: 'משתמש מפנה 1',
     gender: Gender.Male,
-    birthDate: new Date('1990-01-01'),
+    birthDate: (new Date('1990-01-01')).toString(),
     isDelete: false,
     profession: 'מתכנת',
     assignments: [],
+    rank: 'רב"ט',
     collectionsActivitiesHistory: [
       {
         collectionPreview: {
@@ -332,11 +333,12 @@ export const usersExample: User[] = [
     note: 'הערה 2',
     referringUser: 'משתמש מפנה 2',
     gender: Gender.Female,
-    birthDate: new Date('1985-05-15'),
+    birthDate: (new Date('1985-05-15')).toString(),
     isDelete: false,
     profession: 'רואה חשבון',
     assignments: [],
     collectionsActivitiesHistory: [],
     subscribedCollections: [],
+    rank: 'רב"ט',
   },
 ];

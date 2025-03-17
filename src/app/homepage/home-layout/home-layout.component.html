@@ -23,7 +23,7 @@
         <div class="animate__animated animate__fadeInUp">
             <p class="homepage-container-title">מארזי הלמידה שלי</p>
             <div class="flex-4 d-flex gap-4 column">
-                <collection-horizontal-overview class="shadow" *ngFor="let collectionSubscription of userCollectionsSubscriptions"
+                <collection-horizontal-overview class="shadow" *ngFor="let collectionSubscription of userCollectionsSubscriptionsData"
                     [collectionSubscription]="collectionSubscription"></collection-horizontal-overview>
             </div>
         </div>
@@ -36,17 +36,17 @@
                 <img src="assets/homepage/userAvatar.png" class="profile-image" alt="profile-image">
             </div>
             <div class="profile-name-container">
-                <p class="profile-title">שם היוזר</p>
-                <p class="profile-subtitle">תפקיד </p>
+                <p class="profile-title">{{ userFullName }}</p>
+                <p class="profile-subtitle">{{ userProfession }}</p>
             </div>
         </div>
         <div class="profile-center-conatiner">
             <p class="homepage-container-subtitle">פרטים כלליים</p>
-            <labels-with-icons-list [items]="userPersonalGeneralDetails"></labels-with-icons-list>
+            <labels-with-icons-list [items]="userPersonalGeneralDetailsData || []"></labels-with-icons-list>
         </div>
         <div class="profile-bottom-conatiner">
             <p class="homepage-container-subtitle">פרטים בסיסיים</p>
-            <key-value-list [items]="userGeneralDetails"></key-value-list>
+            <key-value-list [items]="userBasicDetailsData || []"></key-value-list>
         </div>
     </div>
 </div>

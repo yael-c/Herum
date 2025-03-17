@@ -1,7 +1,7 @@
-import { FeedPriority } from "../Enums/FeedPriority";
-import { SubscriptionStatus } from "../Enums/SubscriptionStatus";
-import { CollectionPreview } from "../Previews/CollectionPreview"
-import { ResourceSubscription } from "./ResourceSubscription";
+import { FeedPriority } from '../Enums/FeedPriority';
+import { SubscriptionStatus } from '../Enums/SubscriptionStatus';
+import { CollectionPreview } from '../Previews/CollectionPreview'
+import { ResourceSubscription } from './ResourceSubscription';
 
 export type CollectionSubscription = {
     collectionPreview: CollectionPreview;
@@ -11,4 +11,5 @@ export type CollectionSubscription = {
     subscriptionTime: Date;
     lastActivityTime: Date;
     grade: number;
+    // todo: after adding to the dynamic data an 'hours' property, add here - hours: number
 }

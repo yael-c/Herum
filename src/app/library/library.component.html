@@ -1,0 +1,110 @@
+<div class="library-container" dir="rtl">
+    <div class="section-header">
+        <h2>ספרייה</h2>
+        <span class="sub-header">מאגרי הלמידה בבעלותי</span>
+    </div>
+
+    <!-- User's Subscribed Collections -->
+    <div class="collections-section">
+        <div class="section-title">קטלוג מאגרי למידה</div>
+
+        <div class="card" style="width: 18rem;">
+            <div class="position-relative">
+                <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" class="card-img-top"
+                     alt="Card image">
+                <div class="position-absolute bottom-0 end-0 p-2 d-flex gap-1">
+                    <span class="badge badge-pill badge-light bg-secondary text-white">Light</span>
+                    <span class="badge badge-pill badge-light bg-secondary text-white">Light</span>
+
+                </div>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+
+        <div class="collections-list" *ngIf="!loading; else loadingTemplate">
+            <div class="collection-card" *ngFor="let collection of subscribedCollections">
+                <div class="card-image">
+                    <img [src]="collection?.imageUrl || 'assets/default-collection.jpg'" alt="collection cover">
+                    <div class="resources-count">
+                        <span>{{ 0 }} משאבים</span>
+                        <!--                        collection?.Resources?.length -->
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="collection-title">{{ collection.name }}</h3>
+                    <p class="description">{{ collection.description }}</p>
+                    <div class="details">
+            <span class="topics" *ngIf="collection.topics && collection.topics.length > 0">
+              <span class="topic-tag" *ngFor="let topic of collection.topics">{{ topic }}</span>
+            </span>
+                        <button class="view-btn">נהל מארזי למידה</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- All Collections -->
+    <div class="collections-section">
+        <div class="section-title-row">
+            <div class="section-title">קטלוג מאגרי למידה</div>
+            <div class="filters">
+                <ng-container *ngFor="let topic of topics; index as i">
+                    <!--                    class="filter-btn active"-->
+                    <button class="{{(i === selectedTopicIndex ? 'filter-btn active' : 'filter-btn')}}"
+                            (click)="filterCategory(i)">{{ topic }}
+                    </button>
+                </ng-container>
+                <!--                -->
+                <!--                <button class="filter-btn active" (click)="filterCategory()">מערכות</button>-->
+                <!--                <button class="filter-btn" (click)="filterCategory()">מודיעיני</button>-->
+                <!--                <button class="filter-btn" (click)="filterCategory()">מקצוע</button>-->
+                <!--                <button class="filter-btn">משימה</button>-->
+                <!--                <button class="filter-btn">הכשרות</button>-->
+                <!--                <button class="filter-btn">אחר</button>-->
+            </div>
+        </div>
+
+        <div class="collections-list" *ngIf="!loading; else loadingTemplate">
+            <ng-container *ngFor="let collection of allCollections">
+                <ng-container *ngIf="isTopicSelected(collection)">
+                    <div class="collection-card">
+                        <div class="topic-cover-image">
+                            <img [src]="collection?.imageUrl || 'assets/default-collection.jpg'" alt="collection cover">
+                            <div class="topic-chips">
+                                <span>a</span>
+                                <span>b</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="collection-title">{{ collection.name }}</h3>
+                            <span class="description">{{ collection.description }}</span>
+                            <span class="creating-user"> נוצר ע"י: {{ collection.creatingUser?.firstName }} {{ collection.creatingUser?.lastName }}</span>
+                            <div class="details">
+                                <div class="topics" *ngIf="collection.topics && collection.topics.length > 0">
+                                    <span class="topic-tag" *ngFor="let topic of collection.topics">{{ topic }}</span>
+                                </div>
+                                <div>
+                                    <button class="view-btn">התחל הכשרה</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-container>
+
+        </div>
+    </div>
+</div>
+
+<ng-template #loadingTemplate>
+    <div class="loading-container">
+        <div class="spinner"></div>
+        <p>טוען אוספים...</p>
+    </div>
+</ng-template>

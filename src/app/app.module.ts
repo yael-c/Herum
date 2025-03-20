@@ -32,10 +32,12 @@ import {
 import {AuthInterceptor} from './interceptors/AuthInterceptor';
 import {InMemoryCache} from "@apollo/client/core";
 import {HttpLink} from 'apollo-angular/http';
-
+import {LibraryComponent} from './library/library.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
     declarations: [
+        LibraryComponent,
         AppComponent,
         LoginLayoutComponent,
         SignUpComponent,
@@ -67,7 +69,8 @@ import {HttpLink} from 'apollo-angular/http';
         AppRoutingModule,
         FeedModule,
         SharedModule,
-        HomepageModule
+        HomepageModule,
+        MatTabsModule,
     ],
     providers: [
         {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},

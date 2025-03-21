@@ -23,7 +23,11 @@ $primary-color: #26b68d;
 .section-title {
   font-size: 18px;
   font-weight: bold;
-  margin-bottom: 15px;
+}
+
+.navigation-buttons {
+  display: flex;
+  gap: 8px;
 }
 
 .filters {
@@ -36,6 +40,7 @@ $primary-color: #26b68d;
     font-weight: 700;
     cursor: pointer;
     transition: all 0.2s;
+    position: relative;
 
     &.active {
       border-bottom: 2px solid var(--icons-color);
@@ -67,6 +72,7 @@ $primary-color: #26b68d;
     height: 40px;
     border: 4px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
+    border-top: 4px solid $primary-color;
     border-top: 4px solid $primary-color;
     animation: spin 1s linear infinite;
   }

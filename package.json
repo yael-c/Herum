@@ -24,7 +24,7 @@
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
     "@apollo/client": "^3.6.9",
-    "@fortawesome/fontawesome-free": "^6.4.2",
+    "@fortawesome/fontawesome-free": "^6.7.2",
     "@syncfusion/ej2-angular-pdfviewer": "^25.1.38",
     "ag-grid-angular": "^31.0.1",
     "ag-grid-community": "^31.0.1",

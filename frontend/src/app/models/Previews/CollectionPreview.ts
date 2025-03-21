@@ -1,5 +1,4 @@
-import {UserPreview} from './UserPreview';
-
+import { UserPreview } from './UserPreview';
 
 export type CollectionPreview = {
   id: string;

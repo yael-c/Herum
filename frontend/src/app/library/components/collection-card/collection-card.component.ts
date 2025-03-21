@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Collection } from '../../../models/Collection/Collection'
-import { CollectionPreview } from '../../../models/Previews/CollectionPreview'
+import { Collection } from '../../../models/Collection/Collection';
+import { CollectionPreview } from '../../../models/Previews/CollectionPreview';
 
 @Component({
   selector: 'app-collection-card',

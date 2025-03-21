@@ -4,10 +4,9 @@ import { Answer, Question, QuizUserAnswer } from '../herum-quiz.component';
 @Component({
   selector: 'quiz-two-answers-question',
   templateUrl: './quiz-two-answers-question.component.html',
-  styleUrls: ['./quiz-two-answers-question.component.scss']
+  styleUrls: ['./quiz-two-answers-question.component.scss'],
 })
 export class QuizTwoAnswersQuestionComponent implements OnInit {
-
   @Input() question!: Question;
   @Input() userAnswers!: QuizUserAnswer;
   @Input() isSubmitted: boolean = false;
@@ -15,10 +14,9 @@ export class QuizTwoAnswersQuestionComponent implements OnInit {
 
   selectedAnswer: string = '';
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   _onAnswersChange(answer: Answer) {
     console.log(answer);

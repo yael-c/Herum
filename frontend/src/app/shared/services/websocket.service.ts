@@ -2,10 +2,9 @@ import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WebsocketService {
-
   private socket: WebSocket | undefined;
   private subject: Subject<any> | undefined;
 

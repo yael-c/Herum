@@ -5,15 +5,12 @@ import { Resource } from 'src/app/models/Resource/Resource';
 @Component({
   selector: 'app-resource-layout',
   templateUrl: './resource-layout.component.html',
-  styleUrls: ['./resource-layout.component.scss']
+  styleUrls: ['./resource-layout.component.scss'],
 })
 export class ResourceLayoutComponent implements OnInit {
-
   @Input() resource!: Resource;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

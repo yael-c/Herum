@@ -10,7 +10,7 @@
 // }
 
 herum-chip {
-    width: fit-content !important;
+  width: fit-content !important;
 }
 
 // input[type="text"] {
@@ -74,14 +74,14 @@ herum-chip {
 // }
 
 .shevron-icon {
-    position: absolute;
-    left: 10px;
-    top: 10px;
-    cursor: pointer;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  cursor: pointer;
 }
 
 .fa-solid {
-    color: var(--icons-color) !important;
+  color: var(--icons-color) !important;
 }
 
 // ::ng-deep.mat-form-field-underline {
@@ -97,9 +97,9 @@ herum-chip {
 // }
 
 ::ng-deep .mat-chip.mat-standard-chip {
-    background-color: transparent;
-    color: var(--secondary-color);
-    border: 1px solid var(--secondary-color);
+  background-color: transparent;
+  color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
 }
 
 // ::ng-deep.mat-chip-list-wrapper {
@@ -129,6 +129,6 @@ herum-chip {
 // }
 
 .dropbtn {
-    display: flex;
-    gap: 8px;
+  display: flex;
+  gap: 8px;
 }

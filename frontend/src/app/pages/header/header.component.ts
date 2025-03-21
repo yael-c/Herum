@@ -4,14 +4,12 @@ import { routerLinksToRoles } from './routerLinksToRoles';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-
   routerLinksToRoles = routerLinksToRoles;
 
-  constructor() { }
-  
-  ngOnInit(): void {  }
+  constructor() {}
 
+  ngOnInit(): void {}
 }

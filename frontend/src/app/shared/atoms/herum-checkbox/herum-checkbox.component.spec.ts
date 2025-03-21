@@ -8,9 +8,8 @@ describe('HerumCheckboxComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HerumCheckboxComponent ]
-    })
-    .compileComponents();
+      declarations: [HerumCheckboxComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HerumCheckboxComponent);
     component = fixture.componentInstance;

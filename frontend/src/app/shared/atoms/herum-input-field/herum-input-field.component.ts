@@ -1,86 +1,74 @@
-import {
-    Component,
-    EventEmitter,
-    Input,
-    OnInit,
-    Output,
-    forwardRef,
-} from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output, forwardRef } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => HerumInputFieldComponent),
-    multi: true,
+  provide: NG_VALUE_ACCESSOR,
+  useExisting: forwardRef(() => HerumInputFieldComponent),
+  multi: true,
 };
 const defaultPlaceholder: string = 'הקלד/י...';
 
 @Component({
-    selector: 'herum-input-field',
-    templateUrl: './herum-input-field.component.html',
-    styleUrls: ['./herum-input-field.component.scss'],
-    providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR],
+  selector: 'herum-input-field',
+  templateUrl: './herum-input-field.component.html',
+  styleUrls: ['./herum-input-field.component.scss'],
+  providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR],
 })
 export class HerumInputFieldComponent implements OnInit, ControlValueAccessor {
-    @Input() type: 'number' | 'text' | 'search' = 'text';
-    @Input() placeholder: string = defaultPlaceholder;
-    @Input() disabled: boolean = false;
-    @Input() formControlName: string = '';
-    @Input() isValid: boolean = true;
-    @Input() errorMsg: string = '';
-    @Output() inputValueEmitter = new EventEmitter<string>();
+  @Input() type: 'number' | 'text' | 'search' = 'text';
+  @Input() placeholder: string = defaultPlaceholder;
+  @Input() disabled: boolean = false;
+  @Input() formControlName: string = '';
+  @Input() isValid: boolean = true;
+  @Input() errorMsg: string = '';
+  @Output() inputValueEmitter = new EventEmitter<string>();
 
-    dirty: boolean = false;
-    touched: boolean = false;
-    isBlurred: boolean = false;
+  dirty: boolean = false;
+  touched: boolean = false;
+  isBlurred: boolean = false;
 
-    inputValue: string = '';
+  inputValue: string = '';
 
-    constructor() {
-    }
+  constructor() {}
 
-    ngOnInit(): void {
-    }
+  ngOnInit(): void {}
 
-    clearInput() {
-        this.inputValue = '';
-        this.onChange(this.inputValue);
-    }
+  clearInput() {
+    this.inputValue = '';
+    this.onChange(this.inputValue);
+  }
 
-    onInput(event: Event) {
-        const value = (event.target as HTMLInputElement).value;
-        this.inputValue = value;
-        this.onChange(this.inputValue);
-        this.inputValueEmitter.emit(this.inputValue);
-        this.dirty = true;
-    }
+  onInput(event: Event) {
+    const value = (event.target as HTMLInputElement).value;
+    this.inputValue = value;
+    this.onChange(this.inputValue);
+    this.inputValueEmitter.emit(this.inputValue);
+    this.dirty = true;
+  }
 
-    onChange: (value: any) => void = () => {
-    };
+  onChange: (value: any) => void = () => {};
 
-    onTouched: () => void = () => {
-    };
+  onTouched: () => void = () => {};
 
-    writeValue(value: any): void {
-        this.inputValue = value;
-    }
+  writeValue(value: any): void {
+    this.inputValue = value;
+  }
 
-    registerOnChange(fn: any): void {
-        this.onChange = fn;
-    }
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
 
-    registerOnTouched(fn: any): void {
-        this.onTouched = fn;
-    }
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
 
-    showErrors() {
-    }
+  showErrors() {}
 
-    setBlured() {
-        this.isBlurred = true;
-    }
+  setBlured() {
+    this.isBlurred = true;
+  }
 
-    setTouched() {
-        this.touched = true;
-    }
+  setTouched() {
+    this.touched = true;
+  }
 }

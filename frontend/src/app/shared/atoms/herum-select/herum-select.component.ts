@@ -6,7 +6,6 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./herum-select.component.scss'],
 })
 export class HerumSelectComponent implements OnInit {
-
   @Input() options: string[] = [];
   @Input() selectedOption: string = '';
   @Input() disabled: boolean = false;
@@ -16,7 +15,7 @@ export class HerumSelectComponent implements OnInit {
   selectedOptionIndex: number = -1;
   isDropdownOpen = false;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     window.addEventListener('click', (event) => this.closeDropdown(event));
@@ -27,23 +26,20 @@ export class HerumSelectComponent implements OnInit {
   }
 
   closeDropdown(event: MouseEvent) {
-    if (!(event.target as HTMLElement).matches('.internal')) 
-      this.isDropdownOpen = false;
-    
+    if (!(event.target as HTMLElement).matches('.internal')) this.isDropdownOpen = false;
   }
 
-  selected(a:any){
-  }
-  
-  remove(a:any){}
-  add(a:any){}
-  
-  selectOption(optionIndex: number){
+  selected(a: any) {}
+
+  remove(a: any) {}
+  add(a: any) {}
+
+  selectOption(optionIndex: number) {
     this.selectedOptionIndex = optionIndex;
     this.selectedOption = this.options[optionIndex];
   }
-  
-  isSelectedOption(optionIndex: number){
+
+  isSelectedOption(optionIndex: number) {
     return this.selectedOptionIndex == optionIndex;
   }
 
@@ -51,7 +47,7 @@ export class HerumSelectComponent implements OnInit {
     window.removeEventListener('click', (event) => this.closeDropdown(event));
   }
 
-  show(){
+  show() {
     return this.isDropdownOpen;
   }
 }

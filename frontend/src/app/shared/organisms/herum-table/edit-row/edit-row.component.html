@@ -1,4 +1,10 @@
 <div class="cell-container">
-    <span class="text">{{cell.value}}</span>
-    <img class="icon" *ngIf="isRowHovered" src="assets\shared\icons\table\edit.svg" (click)="_onEdit()" alt="edit" />
+  <span class="text">{{ cell.value }}</span>
+  <img
+    class="icon"
+    *ngIf="isRowHovered"
+    src="assets\shared\icons\table\edit.svg"
+    (click)="_onEdit()"
+    alt="edit"
+  />
 </div>

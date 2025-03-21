@@ -8,9 +8,8 @@ describe('HerumVideoPlayerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HerumVideoPlayerComponent ]
-    })
-    .compileComponents();
+      declarations: [HerumVideoPlayerComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HerumVideoPlayerComponent);
     component = fixture.componentInstance;

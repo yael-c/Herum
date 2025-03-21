@@ -1,14 +1,21 @@
-import { Component, OnInit, ElementRef, ViewChild, EventEmitter, SimpleChanges, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  ViewChild,
+  EventEmitter,
+  SimpleChanges,
+  Input,
+} from '@angular/core';
 import { WebsocketService } from '../../services/websocket.service';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
   selector: 'audio-player',
   templateUrl: './audio-player.component.html',
-  styleUrls: ['./audio-player.component.scss']
+  styleUrls: ['./audio-player.component.scss'],
 })
 export class AudioPlayerComponent implements OnInit {
-
   @ViewChild('audioElement') audioElement!: ElementRef<HTMLAudioElement>;
   connections: any[] = [];
   socketUrl = 'ws://localhost:7151/ws';
@@ -31,25 +38,18 @@ export class AudioPlayerComponent implements OnInit {
 
   @Input() userId: string = 'user1';
 
-  constructor(private websocketService: WebsocketService) { }
+  constructor(private websocketService: WebsocketService) {}
 
   ngOnInit(): void {
     this.websocketService.connect(this.socketUrl).subscribe((message: any) => {
       console.log('Received message:', JSON.parse(message));
       const parsedMessage = JSON.parse(message);
-      if (parsedMessage.type === 'new_connection')
-        this.connections.push(parsedMessage.connection);
-
+      if (parsedMessage.type === 'new_connection') this.connections.push(parsedMessage.connection);
       else if (parsedMessage.type === 'update_position')
         this.updateAudioPosition(parsedMessage.position);
-
-      else if (parsedMessage.type === 'update_speed')
-        this.updatePlaybackSpeed(parsedMessage.speed);
-
-      else if (parsedMessage.type === "group_list")
-        this.groups$.next(parsedMessage.Keys);
+      else if (parsedMessage.type === 'update_speed') this.updatePlaybackSpeed(parsedMessage.speed);
+      else if (parsedMessage.type === 'group_list') this.groups$.next(parsedMessage.Keys);
       console.log(parsedMessage.Keys);
-      
     });
 
     this.audio = new Audio(this.audioUrl);
@@ -66,7 +66,7 @@ export class AudioPlayerComponent implements OnInit {
     });
 
     this.addTouchListeners();
-    (this.isPlaying) ? this.onPlay() : this.onPause();
+    this.isPlaying ? this.onPlay() : this.onPause();
   }
 
   ngAfterViewInit(): void {
@@ -181,7 +181,7 @@ export class AudioPlayerComponent implements OnInit {
 
   calculateProgress(): number {
     if (this.audio.duration) {
-      return ((this.audio.currentTime / this.audio.duration) * 100);
+      return (this.audio.currentTime / this.audio.duration) * 100;
     }
     return 0;
   }

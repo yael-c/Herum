@@ -4,24 +4,22 @@ import { ResourceComment } from 'src/app/models/Shared/ResourceComment';
 @Component({
   selector: 'app-comments-layout',
   templateUrl: './comments-layout.component.html',
-  styleUrls: ['./comments-layout.component.scss']
+  styleUrls: ['./comments-layout.component.scss'],
 })
 export class CommentsLayoutComponent implements OnInit {
-
   @Input() comments: ResourceComment[] = [];
   showComments: boolean = false;
   showNewComment: boolean = false;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  getCommentsLength(){
+  getCommentsLength() {
     return this.comments?.length;
   }
 
-  addComment(){}
-  
-  addNewComment(){}
+  addComment() {}
+
+  addNewComment() {}
 }

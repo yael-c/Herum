@@ -8,9 +8,8 @@ describe('HerumMatSelectComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HerumMatSelectComponent ]
-    })
-    .compileComponents();
+      declarations: [HerumMatSelectComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HerumMatSelectComponent);
     component = fixture.componentInstance;

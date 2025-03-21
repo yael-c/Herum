@@ -1,10 +1,10 @@
 <div class="controllers-container">
   <!-- <div class="icon-box"  mat-button [matMenuTriggerFor]="afterMenu" #menuTrigger> -->
-  <div class="icon-box" (click)="showNotebook=!showNotebook">
+  <div class="icon-box" (click)="showNotebook = !showNotebook">
     <img src="assets/header/note.svg" alt="note-icon" />
   </div>
   <!-- <mat-menu #afterMenu="matMenu" xPosition="after" class="matMenu"> -->
-  <div (click)="preventMenuClose($event)"  *ngIf="showNotebook" (keydown)="preventMenuClose($event)">
+  <div (click)="preventMenuClose($event)" *ngIf="showNotebook" (keydown)="preventMenuClose($event)">
     <notebook-dialog (keydown)="preventMenuClose($event)"></notebook-dialog>
   </div>
   <!-- </mat-menu> -->

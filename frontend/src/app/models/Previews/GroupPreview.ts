@@ -1,3 +1,3 @@
 export type GroupPreview = {
-    id: string;
-}
+  id: string;
+};

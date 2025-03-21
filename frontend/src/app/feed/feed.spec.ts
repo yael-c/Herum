@@ -27,21 +27,23 @@ describe('Integration Test: Collection Menu Layout', () => {
   it('should update selectedResourceInput in CollectionMenuLayout when selecting resource in WideCollectionMenu', () => {
     // Set up test data
     const resource: ResourceSubscription = {
-        resourcePreview: {
-            id: '',
-            title: '',
-            description: '',
-            grade: 0,
-            resourceType: ''
-        },
-        positionInCollection: 0,
-        subscriptionStatus: SubscriptionStatus.Done,
-        lastActivityTime: new Date(),
-        grade: 0
+      resourcePreview: {
+        id: '',
+        title: '',
+        description: '',
+        grade: 0,
+        resourceType: '',
+      },
+      positionInCollection: 0,
+      subscriptionStatus: SubscriptionStatus.Done,
+      lastActivityTime: new Date(),
+      grade: 0,
     };
-    
+
     // Trigger ngOnChanges in WideCollectionMenuComponent by emitting the event
-    const wideMenuComponent = fixture.debugElement.query(By.directive(WideCollectionMenuComponent)).componentInstance;
+    const wideMenuComponent = fixture.debugElement.query(
+      By.directive(WideCollectionMenuComponent),
+    ).componentInstance;
     wideMenuComponent._onSelectResource(resource);
     fixture.detectChanges();
 
@@ -52,21 +54,23 @@ describe('Integration Test: Collection Menu Layout', () => {
   it('should update selectedResourceInput in CollectionMenuLayout when selecting resource in NarrowCollectionMenu', () => {
     // Set up test data
     const resource: ResourceSubscription = {
-        resourcePreview: {
-            id: '',
-            title: '',
-            description: '',
-            grade: 0,
-            resourceType: ''
-        },
-        positionInCollection: 0,
-        subscriptionStatus: SubscriptionStatus.Done,
-        lastActivityTime: new Date(),
-        grade: 0
+      resourcePreview: {
+        id: '',
+        title: '',
+        description: '',
+        grade: 0,
+        resourceType: '',
+      },
+      positionInCollection: 0,
+      subscriptionStatus: SubscriptionStatus.Done,
+      lastActivityTime: new Date(),
+      grade: 0,
     };
-    
+
     // Trigger ngOnChanges in NarrowCollectionMenuComponent by emitting the event
-    const narrowMenuComponent = fixture.debugElement.query(By.directive(NarrowCollectionMenuComponent)).componentInstance;
+    const narrowMenuComponent = fixture.debugElement.query(
+      By.directive(NarrowCollectionMenuComponent),
+    ).componentInstance;
     narrowMenuComponent._onSelectResource(resource);
     fixture.detectChanges();
 

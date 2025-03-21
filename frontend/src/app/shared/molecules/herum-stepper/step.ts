@@ -1,7 +1,7 @@
-import { StepStatus } from "./stepperStatus";
+import { StepStatus } from './stepperStatus';
 
 export type Step = {
-    index: number,
-    label: string,
-    status: StepStatus, 
-}
+  index: number;
+  label: string;
+  status: StepStatus;
+};

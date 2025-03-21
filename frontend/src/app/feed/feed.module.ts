@@ -34,7 +34,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     FeedCollectionPriorityExpendablePanelComponent,
     FeedCommentsComponent,
     WideCollectionMenuComponent,
-    NarrowCollectionMenuComponent
+    NarrowCollectionMenuComponent,
   ],
   imports: [
     CommonModule,
@@ -48,6 +48,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatSidenavModule,
     MatTooltipModule,
     SharedModule,
-  ]
+  ],
 })
-export class FeedModule { }
+export class FeedModule {}

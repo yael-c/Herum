@@ -1,3 +1,3 @@
 export type UserPreview = {
-    id: string;
-}
+  id: string;
+};

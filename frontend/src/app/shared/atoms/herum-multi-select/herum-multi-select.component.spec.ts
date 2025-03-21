@@ -8,9 +8,8 @@ describe('HerumMultiSelectComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HerumMultiSelectComponent ]
-    })
-    .compileComponents();
+      declarations: [HerumMultiSelectComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HerumMultiSelectComponent);
     component = fixture.componentInstance;

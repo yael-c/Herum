@@ -1,11 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IFilterAngularComp } from 'ag-grid-angular';
-import {
-  IAfterGuiAttachedParams,
-  IDoesFilterPassParams,
-  IFilterParams,
-} from 'ag-grid-community';
+import { IAfterGuiAttachedParams, IDoesFilterPassParams, IFilterParams } from 'ag-grid-community';
 
 @Component({
   standalone: true,
@@ -23,8 +19,8 @@ import {
         />
       </div>
       <div>
-        This filter does partial word search on multiple words, eg "mich phel"
-        still brings back Michael Phelps.
+        This filter does partial word search on multiple words, eg "mich phel" still brings back
+        Michael Phelps.
       </div>
     </div>
   `,

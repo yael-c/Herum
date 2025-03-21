@@ -9,13 +9,12 @@ import { NavigationEnd, Router } from '@angular/router';
   styleUrls: ['./login-layout.component.scss'],
 })
 export class LoginLayoutComponent implements OnInit {
-
   isSignInMode: boolean = true;
   loginIconsList = loginIconsList;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   runAnimation(): void {
     const vector = document.querySelector('.vector') as HTMLElement;
@@ -28,7 +27,7 @@ export class LoginLayoutComponent implements OnInit {
         vector.style.animation = 'runAcross 2s ease-in-out forwards';
       }, 10);
 
-      setTimeout(() => { }, 2000);
+      setTimeout(() => {}, 2000);
     }
   }
 
@@ -36,8 +35,5 @@ export class LoginLayoutComponent implements OnInit {
     this.isSignInMode = !this.isSignInMode;
   }
 
-  onSignIn(signInData: SignInData) {
-
-
-  }
+  onSignIn(signInData: SignInData) {}
 }

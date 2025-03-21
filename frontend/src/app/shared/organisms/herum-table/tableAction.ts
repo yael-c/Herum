@@ -1,1 +1,1 @@
-export type TableActions = "EditCell";
+export type TableActions = 'EditCell';

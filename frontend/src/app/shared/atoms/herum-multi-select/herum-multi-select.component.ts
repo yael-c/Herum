@@ -6,10 +6,9 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
 @Component({
   selector: 'herum-multi-select',
   templateUrl: './herum-multi-select.component.html',
-  styleUrls: ['./herum-multi-select.component.scss', '../herum-select/herum-select.component.scss']
+  styleUrls: ['./herum-multi-select.component.scss', '../herum-select/herum-select.component.scss'],
 })
 export class HerumMultiSelectComponent {
-
   @Input() options!: string[];
   @Input() maxChips: number = 2;
   @Input() disabled: boolean = false;
@@ -26,7 +25,7 @@ export class HerumMultiSelectComponent {
   // filteredOptions: Observable<string[]>;
   isShowAll: boolean = false;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     window.addEventListener('click', (event) => this.closeDropdown(event));
@@ -35,8 +34,7 @@ export class HerumMultiSelectComponent {
   add(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
 
-    if (value)
-      this.options.push(value);
+    if (value) this.options.push(value);
 
     event.chipInput!.clear();
     this.optionCtrl.setValue(null);
@@ -47,27 +45,23 @@ export class HerumMultiSelectComponent {
     const index = this.selectedOptions.indexOf(option);
     console.log(index);
 
-    if (index >= 0){
+    if (index >= 0) {
       this.selectedOptions.splice(index, 1);
     }
-
   }
 
   select(option: string): void {
-    if (this.selectedOptions.includes(option))
-      return
+    if (this.selectedOptions.includes(option)) return;
 
     this.selectedOptions.push(option);
   }
 
   getLimitedList() {
-    if (this.selectedOptions.length < this.maxChips)
-      return this.selectedOptions;
-    else
-      return this.selectedOptions.slice(0, this.maxChips);
+    if (this.selectedOptions.length < this.maxChips) return this.selectedOptions;
+    else return this.selectedOptions.slice(0, this.maxChips);
   }
 
-  _getHiddenOptions(){
+  _getHiddenOptions() {
     return this.selectedOptions.slice(this.maxChips).join(',');
   }
 

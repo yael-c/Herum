@@ -1,6 +1,6 @@
-import { Permission } from "../Shared/Permission"
+import { Permission } from '../Shared/Permission';
 
 export type AndFieldsPermission = {
-    permission: Permission;
-    fieldNameToValue: { [key: string]: string };
-}
+  permission: Permission;
+  fieldNameToValue: { [key: string]: string };
+};

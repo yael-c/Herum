@@ -1,3 +1,3 @@
 export type LoginData = {
-    time: Date;
-}
+  time: Date;
+};

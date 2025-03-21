@@ -1,5 +1,5 @@
-@import "~ag-grid-community/styles/ag-grid.css";
-@import "~ag-grid-community/styles/ag-theme-alpine.css";
+@import '~ag-grid-community/styles/ag-grid.css';
+@import '~ag-grid-community/styles/ag-theme-alpine.css';
 
 ::ng-deep.ag-center-cols-container {
   width: 100% !important;
@@ -35,7 +35,11 @@
 }
 
 ::ng-deep.ag-header {
-  background: linear-gradient(0deg, rgba(0, 212, 255, 0) 0%, rgba(38, 197, 147, 0.4510548107255521) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 212, 255, 0) 0%,
+    rgba(38, 197, 147, 0.4510548107255521) 100%
+  );
   color: #333;
   font-weight: bold;
   height: 20px;
@@ -84,7 +88,7 @@
   border-left: 1px solid #ccc !important;
 }
 
-::ng-deep.ag-header-cell:not(:first-child){
+::ng-deep.ag-header-cell:not(:first-child) {
   padding: 0;
 }
 
@@ -122,11 +126,11 @@
   color: var(--secondary-color);
 }
 
-::ng-deep.ag-root-wrapper.ag-layout-normal{
+::ng-deep.ag-root-wrapper.ag-layout-normal {
   border-radius: 8px;
 }
 
-.edit-row-cell{
+.edit-row-cell {
   width: 100% !important;
 }
 
@@ -142,6 +146,6 @@
   padding: 0;
 }
 
-ag-grid-angular{
+ag-grid-angular {
   height: 900px;
 }

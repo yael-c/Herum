@@ -54,8 +54,7 @@ export class HerumQuizComponent implements OnChanges {
           },
           {
             id: '2',
-            content:
-              ' עמיאל עמיאל עמיאל עמיאל עמיאל עמיאלעמיאלל עמיאל עמיאל עמיאל',
+            content: ' עמיאל עמיאל עמיאל עמיאל עמיאל עמיאלעמיאלל עמיאל עמיאל עמיאל',
             isCorrect: false,
           },
         ],
@@ -713,8 +712,7 @@ export class HerumQuizComponent implements OnChanges {
 
   _nextQuestion(isSkipped: boolean = false) {
     if (this.quizData.questions[this.quizData.currentQuestion - 1])
-      this.quizData.questions[this.quizData.currentQuestion - 1].isSkipped =
-        isSkipped;
+      this.quizData.questions[this.quizData.currentQuestion - 1].isSkipped = isSkipped;
 
     if (this.quizData.currentQuestion == this.quizData.questions.length + 1) {
       this.quizData.isSubmitted = true;
@@ -725,9 +723,7 @@ export class HerumQuizComponent implements OnChanges {
   }
 
   _getUserAnswers(questionId: string): any {
-    let res = this.quizData.userAnswers?.find(
-      (userAnswer) => userAnswer.questionId == questionId
-    );
+    let res = this.quizData.userAnswers?.find((userAnswer) => userAnswer.questionId == questionId);
     return res ? res : { questionId: questionId, answerIds: [] };
   }
 
@@ -743,7 +739,7 @@ export class HerumQuizComponent implements OnChanges {
     if (!this.quizData.userAnswers) this.quizData.userAnswers = [];
 
     let question = this.quizData.userAnswers?.find(
-      (userAnswer) => userAnswer.questionId == questionId
+      (userAnswer) => userAnswer.questionId == questionId,
     );
 
     if (question?.answerIds) question.answerIds = userAnswers;
@@ -759,10 +755,10 @@ export class HerumQuizComponent implements OnChanges {
     return this.quizData.currentQuestion == 0
       ? 'התחל מבחן'
       : this.quizData.currentQuestion == this.quizData.questions.length
-      ? 'סיים מבחן'
-      : this.quizData.currentQuestion == this.quizData.questions.length + 1
-      ? 'הגשת מבחן'
-      : 'לשאלה הבאה';
+        ? 'סיים מבחן'
+        : this.quizData.currentQuestion == this.quizData.questions.length + 1
+          ? 'הגשת מבחן'
+          : 'לשאלה הבאה';
   }
 
   get isValidQuiz() {
@@ -770,7 +766,7 @@ export class HerumQuizComponent implements OnChanges {
     return this.quizData.questions.length == this.quizData.userAnswers!.length;
   }
 
-  get isLastQuestion(){
+  get isLastQuestion() {
     return this.quizData.currentQuestion == this.quizData.questions.length + 1;
   }
 }
@@ -783,7 +779,7 @@ export type QuizData = {
   isSubmitted: boolean;
   userAnswers?: QuizUserAnswer[];
   currentQuestion: number;
-  grade?:number;
+  grade?: number;
 };
 
 export type Question = {

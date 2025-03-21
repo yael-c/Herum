@@ -5,34 +5,33 @@ import { StepStatus } from './stepperStatus';
 @Component({
   selector: 'herum-stepper',
   templateUrl: './herum-stepper.component.html',
-  styleUrls: ['./herum-stepper.component.scss']
+  styleUrls: ['./herum-stepper.component.scss'],
 })
 export class HerumStepperComponent implements OnInit {
-
   @Input() stepper: Step[] = [
     {
       index: 1,
-      label: "פרטים",
+      label: 'פרטים',
       status: StepStatus.Complete,
     },
     {
       index: 2,
-      label: "שיוך מארזים",
+      label: 'שיוך מארזים',
       status: StepStatus.Complete,
     },
     {
       index: 1,
-      label: "הנוכחי",
+      label: 'הנוכחי',
       status: StepStatus.Current,
     },
     {
       index: 1,
-      label: "סיכום",
+      label: 'סיכום',
       status: StepStatus.Incomplete,
     },
-  ]
+  ];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 }

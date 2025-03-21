@@ -1,4 +1,13 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { CollectionSubscription } from 'src/app/models/User/CollectionSubscription';
 import { ResourceSubscription } from 'src/app/models/User/ResourceSubscription';
 import * as _ from 'lodash';
@@ -9,7 +18,6 @@ import * as _ from 'lodash';
   styleUrls: ['./wide-collection-menu.component.scss'],
 })
 export class WideCollectionMenuComponent implements OnChanges {
-
   @Input() selectedCollection!: CollectionSubscription;
   @Input() selectedResourceInput!: ResourceSubscription;
   @Output() onSelectResource = new EventEmitter<ResourceSubscription>();

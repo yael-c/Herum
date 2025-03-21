@@ -88,9 +88,9 @@ import { ErrorInfoComponent } from './atoms/error-info/error-info.component';
     HerumUserProgressComponent,
     AudioPlayerComponent,
     TimeFormatPipe,
-    ErrorInfoComponent
+    ErrorInfoComponent,
   ],
-  exports:[
+  exports: [
     HerumPdfViewerComponent,
     HerumButtonComponent,
     AudioPlayerComponent,
@@ -120,7 +120,7 @@ import { ErrorInfoComponent } from './atoms/error-info/error-info.component';
   ],
   imports: [
     CommonModule,
-    
+
     PdfViewerModule,
 
     BrowserModule,
@@ -130,7 +130,7 @@ import { ErrorInfoComponent } from './atoms/error-info/error-info.component';
     BrowserModule,
     CommonModule,
     FormsModule,
-    AgGridModule,//.withComponents([]),
+    AgGridModule, //.withComponents([]),
 
     MatAutocompleteModule,
     MatChipsModule,
@@ -140,8 +140,7 @@ import { ErrorInfoComponent } from './atoms/error-info/error-info.component';
     MatSelectModule,
     MatIconModule,
     MatCheckboxModule,
-
   ],
   providers: [],
 })
-export class SharedModule { }
+export class SharedModule {}

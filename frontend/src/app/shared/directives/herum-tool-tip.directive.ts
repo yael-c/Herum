@@ -1,10 +1,9 @@
 import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 
 @Directive({
-  selector: '[appHerumToolTip]'
+  selector: '[appHerumToolTip]',
 })
 export class HerumToolTipDirective {
-
   @Input() tooltipText: string = '';
 
   private tooltip: HTMLElement;
@@ -26,7 +25,7 @@ export class HerumToolTipDirective {
     const hostPosition = this.el.nativeElement.getBoundingClientRect();
     const tooltipPosition = {
       top: window.scrollY + hostPosition.top - this.tooltip.offsetHeight - 30,
-      left: window.scrollX + hostPosition.left + hostPosition.width / 4 //+ this.tooltip.offsetWidth
+      left: window.scrollX + hostPosition.left + hostPosition.width / 4, //+ this.tooltip.offsetWidth
     };
 
     const bodyRect = document.body.getBoundingClientRect();
@@ -47,5 +46,4 @@ export class HerumToolTipDirective {
   private hideTooltip() {
     document.body.removeChild(this.tooltip);
   }
-
 }

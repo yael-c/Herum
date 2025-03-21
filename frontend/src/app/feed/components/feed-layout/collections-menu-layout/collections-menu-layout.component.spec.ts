@@ -8,9 +8,8 @@ describe('CollectionsMenuLayoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CollectionsMenuLayoutComponent ]
-    })
-    .compileComponents();
+      declarations: [CollectionsMenuLayoutComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CollectionsMenuLayoutComponent);
     component = fixture.componentInstance;

@@ -8,9 +8,8 @@ describe('NarrowCollectionMenuComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NarrowCollectionMenuComponent ]
-    })
-    .compileComponents();
+      declarations: [NarrowCollectionMenuComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(NarrowCollectionMenuComponent);
     component = fixture.componentInstance;

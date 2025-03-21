@@ -9,14 +9,13 @@
     </div>
   </div>
   <div class="section-border">
-    <app-herum-user-progress
-      [title]="'מדד כשירות כללי'"
-    ></app-herum-user-progress>
+    <app-herum-user-progress [title]="'מדד כשירות כללי'"></app-herum-user-progress>
   </div>
 
   <feed-collection-priority-expendable-panel
     *ngFor="let collectionByPriority of collectionsByPriority"
-    [title]="collectionByPriority.displayName">
+    [title]="collectionByPriority.displayName"
+  >
     <feed-collection-status-item
       class="clickable"
       *ngFor="let collection of collectionByPriority.collections"

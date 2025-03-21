@@ -1,5 +1,5 @@
 export enum SubscriptionStatus {
-    New,
-    InProgress, 
-    Done
+  New,
+  InProgress,
+  Done,
 }

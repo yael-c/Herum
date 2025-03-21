@@ -8,9 +8,8 @@ describe('FeedCollectionStatusItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FeedCollectionStatusItemComponent ]
-    })
-    .compileComponents();
+      declarations: [FeedCollectionStatusItemComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(FeedCollectionStatusItemComponent);
     component = fixture.componentInstance;

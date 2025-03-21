@@ -8,9 +8,8 @@ describe('HerumPageHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HerumPageHeaderComponent ]
-    })
-    .compileComponents();
+      declarations: [HerumPageHeaderComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HerumPageHeaderComponent);
     component = fixture.componentInstance;

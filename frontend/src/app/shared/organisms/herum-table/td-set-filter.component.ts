@@ -1,22 +1,17 @@
-import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { IFilterAngularComp } from 'ag-grid-angular';
-import {
-  IDoesFilterPassParams,
-  IFilterParams,
-  RowNode,
-} from 'ag-grid-community';
-import { Subject, BehaviorSubject, Observable } from "rxjs";
-import { debounceTime, tap } from "rxjs/operators";
+import { IDoesFilterPassParams, IFilterParams, RowNode } from 'ag-grid-community';
+import { Subject, BehaviorSubject, Observable } from 'rxjs';
+import { debounceTime, tap } from 'rxjs/operators';
 
 @Component({
   //   selector: "td-set-filter",
   //   standalone: true,
   //   imports: [FormsModule,CommonModule],
-  templateUrl: "./td-set-filter.component.html",
+  templateUrl: './td-set-filter.component.html',
   styleUrls: ['./td-set-filter.component.scss'],
-
 })
 export class TDSetFilterComponent implements IFilterAngularComp {
   private static readonly rowHeight: number = 28;
@@ -47,12 +42,11 @@ export class TDSetFilterComponent implements IFilterAngularComp {
     this.onFilterListChange$ = new BehaviorSubject<string[]>([]);
     this.ngUnsubscribe = new Subject<any>();
 
-    this.onFilterValuesChanged$ = this.onFilterListChange$
-      .pipe(
-        debounceTime(250),
-        tap(values => this.sortValues(values)),
-        tap(values => this.setContainerHeight())
-      );
+    this.onFilterValuesChanged$ = this.onFilterListChange$.pipe(
+      debounceTime(250),
+      tap((values) => this.sortValues(values)),
+      tap((values) => this.setContainerHeight()),
+    );
 
     this.setUniqueValues();
     this.selectEverything();
@@ -60,8 +54,7 @@ export class TDSetFilterComponent implements IFilterAngularComp {
 
   setUniqueValues() {
     this.filterParams.rowModel.forEachNode((node: RowNode) => {
-      if (!node.data)
-        return;
+      if (!node.data) return;
 
       let value = node.data[this.fieldId];
       this.addUniqueValueIfMissing(value);
@@ -69,13 +62,15 @@ export class TDSetFilterComponent implements IFilterAngularComp {
   }
 
   toggleItem(value: string) {
-    console.log('value', (value));
-    console.log('selectedValuesMap.hasOwnProperty(item)', this.selectedValuesMap.hasOwnProperty(value));
+    console.log('value', value);
+    console.log(
+      'selectedValuesMap.hasOwnProperty(item)',
+      this.selectedValuesMap.hasOwnProperty(value),
+    );
     console.log('selectedValuesMap', this.selectedValuesMap);
     if ((this.selectedValuesMap as { [key: string]: number })[value]) {
       delete (this.selectedValuesMap as { [key: string]: number })[value];
-    }
-    else (this.selectedValuesMap as { [key: string]: number })[value] = 1;
+    } else (this.selectedValuesMap as { [key: string]: number })[value] = 1;
 
     this.isEverythingSelected =
       Object.keys(this.selectedValuesMap).length === this.filterList.length;
@@ -85,10 +80,8 @@ export class TDSetFilterComponent implements IFilterAngularComp {
 
   toggleEverything() {
     this.isEverythingSelected = !this.isEverythingSelected;
-    if (this.isEverythingSelected)
-      this.selectEverything();
-    else
-      this.unselectEverything();
+    if (this.isEverythingSelected) this.selectEverything();
+    else this.unselectEverything();
 
     this.onFilterChanged();
   }
@@ -134,8 +127,7 @@ export class TDSetFilterComponent implements IFilterAngularComp {
   }
 
   private setContainerHeight() {
-    this.containerHeight =
-      this.filterList.length * TDSetFilterComponent.rowHeight;
+    this.containerHeight = this.filterList.length * TDSetFilterComponent.rowHeight;
   }
 
   private sortValues(values: string[]) {
@@ -143,7 +135,10 @@ export class TDSetFilterComponent implements IFilterAngularComp {
   }
 
   private selectEverything() {
-    this.selectedValuesMap = this.filterList.reduce((acc, value) => ({ ...acc, [value]: 1 }), {} as { [key: string]: number });
+    this.selectedValuesMap = this.filterList.reduce(
+      (acc, value) => ({ ...acc, [value]: 1 }),
+      {} as { [key: string]: number },
+    );
     this.isEverythingSelected = true;
   }
 
@@ -153,11 +148,9 @@ export class TDSetFilterComponent implements IFilterAngularComp {
   }
 
   private addUniqueValueIfMissing(value: string) {
-    if (!this.isValueValid(value))
-      return;
+    if (!this.isValueValid(value)) return;
 
-    if ((this.uniqueCheck as { [key: string]: number })[value])
-      return;
+    if ((this.uniqueCheck as { [key: string]: number })[value]) return;
 
     this.filterList.push(value);
     this.onFilterListChange$.next([...this.filterList]);
@@ -165,8 +158,7 @@ export class TDSetFilterComponent implements IFilterAngularComp {
   }
 
   private isValueValid(value: string) {
-    if (value === "" || value === undefined || value === null)
-      return false;
+    if (value === '' || value === undefined || value === null) return false;
 
     return true;
   }

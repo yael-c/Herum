@@ -4,16 +4,15 @@ import { TableService } from '../table.service';
 @Component({
   selector: 'edit-row',
   templateUrl: './edit-row.component.html',
-  styleUrls: ['./edit-row.component.scss']
+  styleUrls: ['./edit-row.component.scss'],
 })
 export class EditRowComponent {
-
   @Output() onEdit: EventEmitter<string> = new EventEmitter<string>();
 
   cell: any;
   isRowHovered = true;
 
-  constructor(private tableService: TableService) { }
+  constructor(private tableService: TableService) {}
 
   agInit(cell: any): void {
     this.tableService.getCurrentHoveredRowIndex().subscribe((index) => {

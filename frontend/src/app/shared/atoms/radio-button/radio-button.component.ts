@@ -1,4 +1,4 @@
-import { Component, OnInit,Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'herum-radio-button',
@@ -6,7 +6,6 @@ import { Component, OnInit,Input, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./radio-button.component.scss'],
 })
 export class RadioButtonComponent implements OnInit {
-
   @Input() options!: { name: string; id: string }[];
   @Output() selectOptionEmitter = new EventEmitter<string>();
 
@@ -14,7 +13,7 @@ export class RadioButtonComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  _onSelect(option:any){
+  _onSelect(option: any) {
     this.selectOptionEmitter.emit(option.id);
   }
 }

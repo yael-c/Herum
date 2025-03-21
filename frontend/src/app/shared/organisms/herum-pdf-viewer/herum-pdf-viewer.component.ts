@@ -8,11 +8,24 @@ import {
   OnChanges,
   OnDestroy,
   Output,
-  EventEmitter
+  EventEmitter,
 } from '@angular/core';
 import * as pdfjsLib from 'pdfjs-dist';
 import { GlobalWorkerOptions } from 'pdfjs-dist';
-import { LinkAnnotationService, BookmarkViewService, MagnificationService, ThumbnailViewService, ToolbarService, TextSearchService, TextSelectionService, PrintService, AnnotationService, FormDesignerService, FormFieldsService, PageOrganizerService } from '@syncfusion/ej2-angular-pdfviewer';
+import {
+  LinkAnnotationService,
+  BookmarkViewService,
+  MagnificationService,
+  ThumbnailViewService,
+  ToolbarService,
+  TextSearchService,
+  TextSelectionService,
+  PrintService,
+  AnnotationService,
+  FormDesignerService,
+  FormFieldsService,
+  PageOrganizerService,
+} from '@syncfusion/ej2-angular-pdfviewer';
 import { NavigationService } from 'ag-grid-community';
 GlobalWorkerOptions.workerSrc = '/assets/fff.pdf.worker.js';
 
@@ -20,18 +33,26 @@ GlobalWorkerOptions.workerSrc = '/assets/fff.pdf.worker.js';
   selector: 'app-herum-pdf-viewer',
   templateUrl: './herum-pdf-viewer.component.html',
   styleUrls: ['./herum-pdf-viewer.component.scss'],
-  providers: [ LinkAnnotationService, BookmarkViewService, MagnificationService,
-    ThumbnailViewService, ToolbarService, NavigationService,
-    TextSearchService, TextSelectionService, PrintService,
-    AnnotationService, FormDesignerService, FormFieldsService, PageOrganizerService]
+  providers: [
+    LinkAnnotationService,
+    BookmarkViewService,
+    MagnificationService,
+    ThumbnailViewService,
+    ToolbarService,
+    NavigationService,
+    TextSearchService,
+    TextSelectionService,
+    PrintService,
+    AnnotationService,
+    FormDesignerService,
+    FormFieldsService,
+    PageOrganizerService,
+  ],
 })
 export class HerumPdfViewerComponent {
-
   public document: string = '../../../../assets/fff.pdf';
-  public resource: string = "https://cdn.syncfusion.com/ej2/23.1.43/dist/ej2-pdfviewer-lib";
+  public resource: string = 'https://cdn.syncfusion.com/ej2/23.1.43/dist/ej2-pdfviewer-lib';
   pagesInDocument: number = 0;
-
-  
 
   @ViewChild(PdfViewerComponent) pdfViewer!: PdfViewerComponent;
   @ViewChild('pageContainer') pageContainer!: ElementRef;
@@ -42,7 +63,7 @@ export class HerumPdfViewerComponent {
   searchQuery: string = '';
   jumpToPage: number = 0;
 
-  constructor() { }
+  constructor() {}
 
   zoomIn() {
     this.zoomValue += 0.1;
@@ -79,48 +100,54 @@ export class HerumPdfViewerComponent {
     this.searchInPDF(pdfDoc, searchText, 1);
   }
 
-  searchInPDF(pdfDoc:any, searchText:any, pageNumber:any) {
+  searchInPDF(pdfDoc: any, searchText: any, pageNumber: any) {
     const searchParams = {
       query: searchText,
       caseSensitive: false,
-      wholeWord: true
+      wholeWord: true,
     };
-      pdfjsLib.getDocument(pdfDoc).promise.then(pdf => {
-      pdf.getPage(pageNumber).then(async page => {
-      const textContent = await page.getTextContent();
-      const matches = this.performSearch(textContent, searchParams);
-        if (matches.length > 0) {
-          this.highlightMatches(matches);
-        } else {
-          console.log('No matches found.');
-        }
-      }).catch(error => {
-        console.error('Error occurred while searching the PDF:', error);
+    pdfjsLib
+      .getDocument(pdfDoc)
+      .promise.then((pdf) => {
+        pdf
+          .getPage(pageNumber)
+          .then(async (page) => {
+            const textContent = await page.getTextContent();
+            const matches = this.performSearch(textContent, searchParams);
+            if (matches.length > 0) {
+              this.highlightMatches(matches);
+            } else {
+              console.log('No matches found.');
+            }
+          })
+          .catch((error) => {
+            console.error('Error occurred while searching the PDF:', error);
+          });
+      })
+      .catch((error) => {
+        console.error('Error occurred while loading the PDF:', error);
       });
-    }).catch(error => {
-      console.error('Error occurred while loading the PDF:', error);
-    });
   }
 
   performSearch(textContent: any, searchParams: any) {
     const regex = new RegExp(searchParams.query, 'gi');
     const matches = [];
     for (const item of textContent.items) {
-    const match = item.str.match(regex);
-    if (match) {
-      matches.push(match);
-    }
+      const match = item.str.match(regex);
+      if (match) {
+        matches.push(match);
+      }
     }
     return matches;
   }
-  highlightMatches(matches:any) {
+  highlightMatches(matches: any) {
     const pageHighlight = this.pageContainer.nativeElement;
     const currentPage = this.pdfViewer.page;
 
     for (let i = 0; i < matches.length; i++) {
       const match = matches[i];
       const pageNumber = match.pageIndex + 1;
-   
+
       if (pageNumber === currentPage) {
         const highlightDiv = document.createElement('div');
         highlightDiv.className = 'highlight';
@@ -137,21 +164,15 @@ export class HerumPdfViewerComponent {
     }
   }
 
-
   jumpToPageNumber() {
     // Navigate to the specified page
     // this.pdfViewer.goToPage(this.jumpToPage);
   }
 
-  onPageChange(event:any) {
+  onPageChange(event: any) {
     // Update current page
     console.log('Current page:', event);
   }
-
-
-
-
-
 
   // @ViewChild(PdfViewerComponent) pdfViewer!: PdfViewerComponent;
 
@@ -184,9 +205,9 @@ export class HerumPdfViewerComponent {
     }
   }
 
-  onLoadComplete($event:any){
+  onLoadComplete($event: any) {
     console.log('Load Complete Event:', $event);
-    this.pageNumber=2;
+    this.pageNumber = 2;
     this.pagesInDocument = $event.pageNumber;
   }
 

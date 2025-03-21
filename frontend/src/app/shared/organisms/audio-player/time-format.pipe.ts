@@ -1,10 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'timeFormat'
+  name: 'timeFormat',
 })
 export class TimeFormatPipe implements PipeTransform {
-
   transform(value: number): string {
     // Convert the time value to a formatted string (e.g., mm:ss)
     const minutes = Math.floor(value / 60);

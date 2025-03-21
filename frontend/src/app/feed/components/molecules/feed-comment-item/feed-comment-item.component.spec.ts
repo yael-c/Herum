@@ -8,9 +8,8 @@ describe('FeedCommentItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FeedCommentItemComponent ]
-    })
-    .compileComponents();
+      declarations: [FeedCommentItemComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(FeedCommentItemComponent);
     component = fixture.componentInstance;

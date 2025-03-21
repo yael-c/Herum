@@ -8,9 +8,8 @@ describe('HerumToggleButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HerumToggleButtonComponent ]
-    })
-    .compileComponents();
+      declarations: [HerumToggleButtonComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HerumToggleButtonComponent);
     component = fixture.componentInstance;

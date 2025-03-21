@@ -4,15 +4,12 @@ import { RouterLinkToRole } from '../routerLinksToRoles';
 @Component({
   selector: 'app-header-menu',
   templateUrl: './header-menu.component.html',
-  styleUrls: ['./header-menu.component.scss']
+  styleUrls: ['./header-menu.component.scss'],
 })
 export class HeaderMenuComponent implements OnInit {
-
   @Input() routerLinksToRoles: RouterLinkToRole[] = [];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

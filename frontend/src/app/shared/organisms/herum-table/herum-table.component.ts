@@ -1,5 +1,13 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { ColDef, ColGroupDef, GridOptions, IAfterGuiAttachedParams, IDoesFilterPassParams, IFilterParams, ISelectCellEditorParams } from 'ag-grid-community';
+import {
+  ColDef,
+  ColGroupDef,
+  GridOptions,
+  IAfterGuiAttachedParams,
+  IDoesFilterPassParams,
+  IFilterParams,
+  ISelectCellEditorParams,
+} from 'ag-grid-community';
 import { HerumCheckboxComponent } from '../../atoms/herum-checkbox/herum-checkbox.component';
 import { EditRowComponent } from './edit-row/edit-row.component';
 import { TableService } from './table.service';
@@ -20,13 +28,13 @@ import { PersonFilter } from './person-filter.component';
 import { TDSetFilterComponent } from './td-set-filter.component';
 
 export type rows = {
-  collectionName: string,
-  subject: string,
-  creator: string,
-  creationDate: string,
-  resourceCount: number,
-  watchTime: string,
-}
+  collectionName: string;
+  subject: string;
+  creator: string;
+  creationDate: string;
+  resourceCount: number;
+  watchTime: string;
+};
 
 @Component({
   selector: 'app-herum-table',
@@ -34,7 +42,6 @@ export type rows = {
   styleUrls: ['./herum-table.component.scss'],
 })
 export class HerumTableComponent {
-
   // rowData: rows[] = [
   //   {
   //     collectionName: 'מארז 1',
@@ -160,16 +167,13 @@ export class HerumTableComponent {
     minWidth: 100,
   };
   public rowData!: IOlympicData[];
-  public themeClass: string =
-    "ag-theme-quartz";
+  public themeClass: string = 'ag-theme-quartz';
 
   constructor(private http: HttpClient) {}
 
   onGridReady(params: GridReadyEvent<IOlympicData>) {
     this.http
-      .get<IOlympicData[]>(
-        'https://www.ag-grid.com/example-assets/olympic-winners.json'
-      )
+      .get<IOlympicData[]>('https://www.ag-grid.com/example-assets/olympic-winners.json')
       .subscribe((data) => {
         this.rowData = data;
       });
@@ -180,11 +184,7 @@ var filterParams: IDateFilterParams = {
     var dateAsString = cellValue;
     if (dateAsString == null) return -1;
     var dateParts = dateAsString.split('/');
-    var cellDate = new Date(
-      Number(dateParts[2]),
-      Number(dateParts[1]) - 1,
-      Number(dateParts[0])
-    );
+    var cellDate = new Date(Number(dateParts[2]), Number(dateParts[1]) - 1, Number(dateParts[0]));
     if (filterLocalDateAtMidnight.getTime() === cellDate.getTime()) {
       return 0;
     }
@@ -197,10 +197,7 @@ var filterParams: IDateFilterParams = {
     return 0;
   },
 };
-let savedFilterModel:
-  | TextFilterModel
-  | ICombinedSimpleModel<TextFilterModel>
-  | null = null;
+let savedFilterModel: TextFilterModel | ICombinedSimpleModel<TextFilterModel> | null = null;
 
 export interface IOlympicData {
   athlete: string;

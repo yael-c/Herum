@@ -8,10 +8,10 @@ import { CollectionSubscription } from 'src/app/models/User/CollectionSubscripti
   styleUrls: ['./collections-menu-layout.component.scss'],
 })
 export class CollectionsMenuLayoutComponent implements OnInit {
-
   @Input() subscribedCollections!: CollectionSubscription[];
   @Output() closeMenu: EventEmitter<void> = new EventEmitter<void>();
-  @Output() onChooseCollection: EventEmitter<CollectionSubscription> = new EventEmitter<CollectionSubscription>();
+  @Output() onChooseCollection: EventEmitter<CollectionSubscription> =
+    new EventEmitter<CollectionSubscription>();
 
   collectionsByPriority!: CollectionPriority[];
 
@@ -25,19 +25,15 @@ export class CollectionsMenuLayoutComponent implements OnInit {
     this.closeMenu.emit();
   }
 
-  _onChooseCollection(selectedCollection: CollectionSubscription){
+  _onChooseCollection(selectedCollection: CollectionSubscription) {
     this.onChooseCollection.emit(selectedCollection);
   }
 
-  private splitByPriority(
-    subscribedCollections: CollectionSubscription[]
-  ): CollectionPriority[] {
+  private splitByPriority(subscribedCollections: CollectionSubscription[]): CollectionPriority[] {
     const result: CollectionPriority[] = [];
 
     subscribedCollections.forEach((collection) => {
-      const existingPriority = result.find(
-        (item) => item.priority === collection.feedPriority
-      );
+      const existingPriority = result.find((item) => item.priority === collection.feedPriority);
 
       if (existingPriority) {
         existingPriority.collections.push(collection);

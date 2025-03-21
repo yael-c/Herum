@@ -8,9 +8,8 @@ describe('QuizGradeSheetComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ QuizGradeSheetComponent ]
-    })
-    .compileComponents();
+      declarations: [QuizGradeSheetComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(QuizGradeSheetComponent);
     component = fixture.componentInstance;

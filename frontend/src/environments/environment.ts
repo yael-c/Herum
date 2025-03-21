@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:5000'
+  baseUrl: 'http://localhost:5000',
 };
 
 export const userRoles = {
@@ -8,6 +8,6 @@ export const userRoles = {
   metaknen: 'metaknen',
   meshabetz: 'meshabetz',
   wideManager: 'wideManager',
-}
+};
 
-export const pagesRouteWithoutHeader = ['/login']
+export const pagesRouteWithoutHeader = ['/login'];

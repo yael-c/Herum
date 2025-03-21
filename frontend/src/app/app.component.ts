@@ -6,23 +6,22 @@ import { pagesRouteWithoutHeader } from 'src/environments/environment';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-
   title = 'herum';
   options: string[] = ['אביקס', 'אופיר2', 'כפתור', 'עמיאל', 'מרום'];
   isHeaderNeeded: boolean = true;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   ngOnInit() {
-    this.router.events.pipe(
-      filter((event): event is NavigationEnd => event instanceof NavigationEnd)
-    ).subscribe((event: NavigationEnd) => {
-      this.isHeaderNeeded = !pagesRouteWithoutHeader.some(route => {
-        return route == event.urlAfterRedirects
+    this.router.events
+      .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        this.isHeaderNeeded = !pagesRouteWithoutHeader.some((route) => {
+          return route == event.urlAfterRedirects;
+        });
       });
-    });
   }
 }

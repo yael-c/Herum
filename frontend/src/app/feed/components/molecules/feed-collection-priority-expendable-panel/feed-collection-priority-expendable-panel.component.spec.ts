@@ -8,9 +8,8 @@ describe('FeedCollectionPriorityExpendablePanelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FeedCollectionPriorityExpendablePanelComponent ]
-    })
-    .compileComponents();
+      declarations: [FeedCollectionPriorityExpendablePanelComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(FeedCollectionPriorityExpendablePanelComponent);
     component = fixture.componentInstance;

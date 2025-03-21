@@ -8,9 +8,8 @@ describe('CollectionHorizontalOverviewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CollectionHorizontalOverviewComponent ]
-    })
-    .compileComponents();
+      declarations: [CollectionHorizontalOverviewComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CollectionHorizontalOverviewComponent);
     component = fixture.componentInstance;

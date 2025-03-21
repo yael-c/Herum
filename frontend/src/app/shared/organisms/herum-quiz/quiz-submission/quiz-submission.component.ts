@@ -4,19 +4,16 @@ import { QuizData } from '../herum-quiz.component';
 @Component({
   selector: 'quiz-submission',
   templateUrl: './quiz-submission.component.html',
-  styleUrls: ['./quiz-submission.component.scss', '../quiz-pages.scss']
+  styleUrls: ['./quiz-submission.component.scss', '../quiz-pages.scss'],
 })
 export class QuizSubmissionComponent implements OnInit {
-
   @Input() quizData!: QuizData;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   get isAllQuestionsAnswered() {
-    return this.quizData.questions.length == this.quizData.userAnswers?.length
+    return this.quizData.questions.length == this.quizData.userAnswers?.length;
   }
-
 }

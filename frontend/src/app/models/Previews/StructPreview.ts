@@ -1,3 +1,3 @@
 export type StructPreview = {
-    id: string;
-}
+  id: string;
+};

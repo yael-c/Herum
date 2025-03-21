@@ -9,45 +9,45 @@ import { ResourceExample } from './ObjectExample/ResourceExample';
 @Component({
   selector: 'app-feed-layout',
   templateUrl: './feed-layout.component.html',
-  styleUrls: ['./feed-layout.component.scss']
+  styleUrls: ['./feed-layout.component.scss'],
 })
 export class FeedLayoutComponent implements OnInit {
-
   selectedCollectionSubscription!: CollectionSubscription;
   selectedResourceSubscription!: ResourceSubscription;
   selectedResource!: Resource;
   userCollections: User = usersExample[0];
   isWideMode: boolean = false;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     this.selectCollection();
   }
-  
+
   selectCollection() {
-    console.log("TODO: write chooseCollection again by buisness logic")
+    console.log('TODO: write chooseCollection again by buisness logic');
     this.selectedCollectionSubscription = this.userCollections.subscribedCollections[0];
-    this.selectResource()
+    this.selectResource();
   }
 
   selectResource() {
-    console.log("TODO: write chooseResource again by buisness logic");
-    this.selectedResourceSubscription = this.selectedCollectionSubscription.resourceSubscriptions[0];
+    console.log('TODO: write chooseResource again by buisness logic');
+    this.selectedResourceSubscription =
+      this.selectedCollectionSubscription.resourceSubscriptions[0];
   }
 
   _onSelectCollection(selectedCollection: CollectionSubscription) {
     this.selectedCollectionSubscription = selectedCollection;
-    this.selectResource()
+    this.selectResource();
   }
 
   _onSelectResource(resource: ResourceSubscription) {
-    console.log("TODO: write _onSelectResource again by buisness logic")
+    console.log('TODO: write _onSelectResource again by buisness logic');
 
-    this.selectedResource = this.getResourceById(resource.resourcePreview.id)
+    this.selectedResource = this.getResourceById(resource.resourcePreview.id);
   }
 
-  private getResourceById(id: string){
+  private getResourceById(id: string) {
     return ResourceExample;
   }
 }

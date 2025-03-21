@@ -1,4 +1,4 @@
 export enum CertificateLevel {
-    SubjectOwner,
-    Admin
+  SubjectOwner,
+  Admin,
 }

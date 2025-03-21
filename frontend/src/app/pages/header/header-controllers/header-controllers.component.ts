@@ -6,12 +6,14 @@ import { NotebookDialogComponent } from '../notebook-dialog/notebook-dialog.comp
 @Component({
   selector: 'app-header-controllers',
   templateUrl: './header-controllers.component.html',
-  styleUrls: ['./header-controllers.component.scss']
+  styleUrls: ['./header-controllers.component.scss'],
 })
 export class HeaderControllersComponent implements OnInit {
-
-  roles = ["אלחוטן / 8200 / אלמוג / צפוני", "אלחוטן / 8200 / אלמוג / דרומי / פצן / לבנון / משבץ / לומד / מילואים / מישר"]
-  showNotebook=false
+  roles = [
+    'אלחוטן / 8200 / אלמוג / צפוני',
+    'אלחוטן / 8200 / אלמוג / דרומי / פצן / לבנון / משבץ / לומד / מילואים / מישר',
+  ];
+  showNotebook = false;
   @ViewChild('menuTrigger') menuTrigger!: MatMenuTrigger;
 
   constructor(public dialog: MatDialog) {}
@@ -29,8 +31,7 @@ export class HeaderControllersComponent implements OnInit {
     dialogRef.afterClosed().subscribe(() => this.menuTrigger.focus());
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   preventMenuClose(event: any) {
     if (event.key != 'ArrowUp' || event.key != 'ArrowDown') {

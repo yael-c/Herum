@@ -21,7 +21,7 @@ export const usersExample: User[] = [
     note: 'הערה 1',
     referringUser: 'משתמש מפנה 1',
     gender: Gender.Male,
-    birthDate: (new Date('1990-01-01')).toString(),
+    birthDate: new Date('1990-01-01').toString(),
     isDelete: false,
     profession: 'מתכנת',
     assignments: [],
@@ -29,10 +29,12 @@ export const usersExample: User[] = [
     collectionsActivitiesHistory: [
       {
         collectionPreview: {
-            id:'eef',
-            name:'אטלס',
-            imageUrl:"https://www.shutterstock.com/image-photo/explosion-colored-powder-isolated-on-600nw-1610196106.jpg",
-            description:'טיפות טיפות על החלון <br> תראה הזמן עצר מלעת <br> יש עוד מילים לשיר שאינני זוכר'
+          id: 'eef',
+          name: 'אטלס',
+          imageUrl:
+            'https://www.shutterstock.com/image-photo/explosion-colored-powder-isolated-on-600nw-1610196106.jpg',
+          description:
+            'טיפות טיפות על החלון <br> תראה הזמן עצר מלעת <br> יש עוד מילים לשיר שאינני זוכר',
         },
         resourceSubscriptions: [
           {
@@ -41,7 +43,7 @@ export const usersExample: User[] = [
               title: 'Resource 1',
               description: 'Description 1',
               grade: 4,
-              resourceType: 'video'
+              resourceType: 'video',
             },
             positionInCollection: 1,
             subscriptionStatus: SubscriptionStatus.New,
@@ -54,7 +56,7 @@ export const usersExample: User[] = [
               title: 'Resource 2',
               description: 'Description 2',
               grade: 3,
-              resourceType: 'video'
+              resourceType: 'video',
             },
             positionInCollection: 2,
             subscriptionStatus: SubscriptionStatus.InProgress,
@@ -70,10 +72,12 @@ export const usersExample: User[] = [
       },
       {
         collectionPreview: {
-          id:'fdsfz',
-          imageUrl:"https://www.shutterstock.com/image-photo/explosion-colored-powder-isolated-on-600nw-1610196106.jpg",
-          name:'פלואו',
-          description:'טיפות טיפות על החלון <br> תראה הזמן עצר מלעת <br> יש עוד מילים לשיר שאינני זוכר'
+          id: 'fdsfz',
+          imageUrl:
+            'https://www.shutterstock.com/image-photo/explosion-colored-powder-isolated-on-600nw-1610196106.jpg',
+          name: 'פלואו',
+          description:
+            'טיפות טיפות על החלון <br> תראה הזמן עצר מלעת <br> יש עוד מילים לשיר שאינני זוכר',
         },
         resourceSubscriptions: [
           {
@@ -82,7 +86,7 @@ export const usersExample: User[] = [
               title: 'Resource 3',
               description: 'Description 3',
               grade: 23,
-              resourceType: 'video'
+              resourceType: 'video',
             },
             positionInCollection: 1,
             subscriptionStatus: SubscriptionStatus.Done,
@@ -95,7 +99,7 @@ export const usersExample: User[] = [
               title: 'Resource 4',
               description: 'Description 4',
               grade: 45,
-              resourceType: 'video'
+              resourceType: 'video',
             },
             positionInCollection: 2,
             subscriptionStatus: SubscriptionStatus.InProgress,
@@ -113,10 +117,12 @@ export const usersExample: User[] = [
     subscribedCollections: [
       {
         collectionPreview: {
-            id:'eef',
-            imageUrl:"https://www.shutterstock.com/image-photo/explosion-colored-powder-isolated-on-600nw-1610196106.jpg",
-            name:'מייפל',
-            description:'טיפות טיפות על החלון <br> תראה הזמן עצר מלעת <br> יש עוד מילים לשיר שאינני זוכר'
+          id: 'eef',
+          imageUrl:
+            'https://www.shutterstock.com/image-photo/explosion-colored-powder-isolated-on-600nw-1610196106.jpg',
+          name: 'מייפל',
+          description:
+            'טיפות טיפות על החלון <br> תראה הזמן עצר מלעת <br> יש עוד מילים לשיר שאינני זוכר',
         },
         resourceSubscriptions: [
           {
@@ -125,7 +131,7 @@ export const usersExample: User[] = [
               title: 'Resource 1',
               description: 'Description 1',
               grade: 4,
-              resourceType: 'video'
+              resourceType: 'video',
             },
             positionInCollection: 1,
             subscriptionStatus: SubscriptionStatus.New,
@@ -138,7 +144,7 @@ export const usersExample: User[] = [
               title: 'Resource 2',
               description: 'Description 2',
               grade: 3,
-              resourceType: 'video'
+              resourceType: 'video',
             },
             positionInCollection: 2,
             subscriptionStatus: SubscriptionStatus.InProgress,
@@ -154,10 +160,12 @@ export const usersExample: User[] = [
       },
       {
         collectionPreview: {
-          id:'fdsfz',
-          imageUrl:"https://www.shutterstock.com/image-photo/explosion-colored-powder-isolated-on-600nw-1610196106.jpg",
-          name:'אוגוסטוס',
-          description:'טיפות טיפות על החלון <br> תראה הזמן עצר מלעת <br> יש עוד מילים לשיר שאינני זוכר'
+          id: 'fdsfz',
+          imageUrl:
+            'https://www.shutterstock.com/image-photo/explosion-colored-powder-isolated-on-600nw-1610196106.jpg',
+          name: 'אוגוסטוס',
+          description:
+            'טיפות טיפות על החלון <br> תראה הזמן עצר מלעת <br> יש עוד מילים לשיר שאינני זוכר',
         },
         resourceSubscriptions: [
           {
@@ -166,7 +174,7 @@ export const usersExample: User[] = [
               title: 'Resource 3',
               description: 'Description 3',
               grade: 23,
-              resourceType: 'video'
+              resourceType: 'video',
             },
             positionInCollection: 1,
             subscriptionStatus: SubscriptionStatus.Done,
@@ -179,7 +187,7 @@ export const usersExample: User[] = [
               title: 'Resource 4',
               description: 'Description 4',
               grade: 45,
-              resourceType: 'video'
+              resourceType: 'video',
             },
             positionInCollection: 2,
             subscriptionStatus: SubscriptionStatus.InProgress,
@@ -195,10 +203,12 @@ export const usersExample: User[] = [
       },
       {
         collectionPreview: {
-            id:'eef',
-            imageUrl:"https://www.shutterstock.com/image-photo/explosion-colored-powder-isolated-on-600nw-1610196106.jpg",
-            name:'פלואו',
-            description:'טיפות טיפות על החלון <br> תראה הזמן עצר מלעת <br> יש עוד מילים לשיר שאינני זוכר'
+          id: 'eef',
+          imageUrl:
+            'https://www.shutterstock.com/image-photo/explosion-colored-powder-isolated-on-600nw-1610196106.jpg',
+          name: 'פלואו',
+          description:
+            'טיפות טיפות על החלון <br> תראה הזמן עצר מלעת <br> יש עוד מילים לשיר שאינני זוכר',
         },
         resourceSubscriptions: [
           {
@@ -207,7 +217,7 @@ export const usersExample: User[] = [
               title: 'המארז הראשון שלי',
               description: 'תיאור רציני של משאב הלמידה הזה. במקרה שלנו מדובר במארז פלואו הראשון',
               grade: 46,
-              resourceType: 'video'
+              resourceType: 'video',
             },
             positionInCollection: 1,
             subscriptionStatus: SubscriptionStatus.Done,
@@ -218,9 +228,10 @@ export const usersExample: User[] = [
             resourcePreview: {
               id: '2',
               title: 'השאילתא הראשונה',
-              description: 'תיאור רציני של משאב הלמידה הזה. במקרה שלנו מדובר בשאילתא הראשונה שנעשה בה שימוש. מדובר במעמד מרגש',
+              description:
+                'תיאור רציני של משאב הלמידה הזה. במקרה שלנו מדובר בשאילתא הראשונה שנעשה בה שימוש. מדובר במעמד מרגש',
               grade: 23,
-              resourceType: 'presentation'
+              resourceType: 'presentation',
             },
             positionInCollection: 2,
             subscriptionStatus: SubscriptionStatus.InProgress,
@@ -231,9 +242,10 @@ export const usersExample: User[] = [
             resourcePreview: {
               id: '3',
               title: 'הקובייה הראשונה',
-              description: 'תיאור רציני של משאב הלמידה הזה. במקרה שלנו מדובר בשאילתא הראשונה שנעשה בה שימוש. מדובר במעמד מרגש',
+              description:
+                'תיאור רציני של משאב הלמידה הזה. במקרה שלנו מדובר בשאילתא הראשונה שנעשה בה שימוש. מדובר במעמד מרגש',
               grade: 23,
-              resourceType: 'pdf'
+              resourceType: 'pdf',
             },
             positionInCollection: 3,
             subscriptionStatus: SubscriptionStatus.New,
@@ -244,9 +256,10 @@ export const usersExample: User[] = [
             resourcePreview: {
               id: '4',
               title: 'מבחן',
-              description: 'תיאור רציני של משאב הלמידה הזה. במקרה שלנו מדובר בשאילתא הראשונה שנעשה בה שימוש. מדובר במעמד מרגש',
+              description:
+                'תיאור רציני של משאב הלמידה הזה. במקרה שלנו מדובר בשאילתא הראשונה שנעשה בה שימוש. מדובר במעמד מרגש',
               grade: 23,
-              resourceType: 'quiz'
+              resourceType: 'quiz',
             },
             positionInCollection: 4,
             subscriptionStatus: SubscriptionStatus.New,
@@ -257,9 +270,10 @@ export const usersExample: User[] = [
             resourcePreview: {
               id: '5',
               title: 'לומדה',
-              description: 'תיאור רציני של משאב הלמידה הזה. במקרה שלנו מדובר בשאילתא הראשונה שנעשה בה שימוש. מדובר במעמד מרגש',
+              description:
+                'תיאור רציני של משאב הלמידה הזה. במקרה שלנו מדובר בשאילתא הראשונה שנעשה בה שימוש. מדובר במעמד מרגש',
               grade: 23,
-              resourceType: 'story'
+              resourceType: 'story',
             },
             positionInCollection: 5,
             subscriptionStatus: SubscriptionStatus.New,
@@ -275,10 +289,12 @@ export const usersExample: User[] = [
       },
       {
         collectionPreview: {
-          id:'fdsfz',
-          name:'אטלס',
-          imageUrl:"https://www.shutterstock.com/image-photo/explosion-colored-powder-isolated-on-600nw-1610196106.jpg",
-          description:'טיפות טיפות על החלון <br> תראה הזמן עצר מלעת <br> יש עוד מילים לשיר שאינני זוכר'
+          id: 'fdsfz',
+          name: 'אטלס',
+          imageUrl:
+            'https://www.shutterstock.com/image-photo/explosion-colored-powder-isolated-on-600nw-1610196106.jpg',
+          description:
+            'טיפות טיפות על החלון <br> תראה הזמן עצר מלעת <br> יש עוד מילים לשיר שאינני זוכר',
         },
         resourceSubscriptions: [
           {
@@ -287,7 +303,7 @@ export const usersExample: User[] = [
               title: 'Resource 3',
               description: 'Description 3',
               grade: 52,
-              resourceType: 'video'
+              resourceType: 'video',
             },
             positionInCollection: 1,
             subscriptionStatus: SubscriptionStatus.Done,
@@ -300,7 +316,7 @@ export const usersExample: User[] = [
               title: 'Resource 4',
               description: 'Description 4',
               grade: 45,
-              resourceType: 'video'
+              resourceType: 'video',
             },
             positionInCollection: 2,
             subscriptionStatus: SubscriptionStatus.InProgress,
@@ -333,7 +349,7 @@ export const usersExample: User[] = [
     note: 'הערה 2',
     referringUser: 'משתמש מפנה 2',
     gender: Gender.Female,
-    birthDate: (new Date('1985-05-15')).toString(),
+    birthDate: new Date('1985-05-15').toString(),
     isDelete: false,
     profession: 'רואה חשבון',
     assignments: [],

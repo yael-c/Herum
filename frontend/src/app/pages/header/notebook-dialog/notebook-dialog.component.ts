@@ -4,58 +4,58 @@ import { QuillEditorComponent } from 'ngx-quill';
 @Component({
   selector: 'notebook-dialog',
   templateUrl: './notebook-dialog.component.html',
-  styleUrls: ['./notebook-dialog.component.scss']
+  styleUrls: ['./notebook-dialog.component.scss'],
 })
 export class NotebookDialogComponent implements OnInit {
-
   activeNoteIndex = 0;
   isContentChanged = false;
   @ViewChild(QuillEditorComponent) quillEditor!: QuillEditorComponent;
 
-  constructor() { }
+  constructor() {}
 
-  notes: { content: string, lastUpdateTime: string }[] = [{
-    content: '',
-    lastUpdateTime: '2021-08-01'
-  }, {
-    content: 'פתק 2',
-    lastUpdateTime: '2021-08-02'
-  }];
-
+  notes: { content: string; lastUpdateTime: string }[] = [
+    {
+      content: '',
+      lastUpdateTime: '2021-08-01',
+    },
+    {
+      content: 'פתק 2',
+      lastUpdateTime: '2021-08-02',
+    },
+  ];
 
   quillConfig = {
     toolbar: {
       container: [
         ['bold', 'italic', 'underline', 'strike'],
         ['code-block'],
-        [{ 'header': 1 }, { 'header': 2 }],
-        [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-        [{ 'font': [] }],
-        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+        [{ header: 1 }, { header: 2 }],
+        [{ list: 'ordered' }, { list: 'bullet' }],
+        [{ font: [] }],
+        [{ header: [1, 2, 3, 4, 5, 6, false] }],
         ['clean'],
         ['link'],
       ],
       theme: 'snow',
-    }
-  }
+    },
+  };
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onSelectionChanged = () => {
-    console.log("Selection Changed");
-  }
+    console.log('Selection Changed');
+  };
 
   onContentChanged = () => {
     this.isContentChanged = true;
-  }
+  };
 
   onFocus = () => {
-    console.log("On Focus");
-  }
+    console.log('On Focus');
+  };
   onBlur = () => {
-    console.log("Blurred");
-  }
+    console.log('Blurred');
+  };
 
   handleMenuKeydown(event: KeyboardEvent): void {
     if (this.quillEditor && this.quillEditor.quillEditor) {
@@ -86,5 +86,4 @@ export class NotebookDialogComponent implements OnInit {
     const textUntilBreak = match ? match[1] : input;
     return textUntilBreak.replace(/<\/?[^>]+(>|$)/g, '');
   }
-
 }

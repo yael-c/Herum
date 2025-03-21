@@ -2,10 +2,9 @@ import { Directive, Input, ElementRef, Renderer2, OnInit } from '@angular/core';
 import { NgControl } from '@angular/forms';
 
 @Directive({
-  selector: '[appConditionalFormControlName]'
+  selector: '[appConditionalFormControlName]',
 })
 export class ConditionalFormControlNameDirective {
-
   @Input('appConditionalFormControlName') set formControlName(value: string) {
     this.controlName = value;
     this.updateFormControlName();
@@ -16,7 +15,7 @@ export class ConditionalFormControlNameDirective {
   constructor(
     private el: ElementRef,
     private renderer: Renderer2,
-    private ngControl: NgControl
+    private ngControl: NgControl,
   ) {}
 
   ngOnInit() {

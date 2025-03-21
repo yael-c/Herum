@@ -5,13 +5,7 @@ import { HomeLayoutComponent } from './home-layout/home-layout.component';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  declarations: [
-    HomeLayoutComponent,
-    EducationStatusItemComponent,
-  ],
-  imports: [
-    CommonModule,
-    SharedModule
-  ]
+  declarations: [HomeLayoutComponent, EducationStatusItemComponent],
+  imports: [CommonModule, SharedModule],
 })
-export class HomepageModule { }
+export class HomepageModule {}

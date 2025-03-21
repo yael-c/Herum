@@ -121,56 +121,56 @@
 // }
 
 .custom-checkbox-container {
-    display: inline-block;
-    position: relative;
-    padding-left: 30px; /* Adjust according to your design */
-    cursor: pointer;
+  display: inline-block;
+  position: relative;
+  padding-left: 30px; /* Adjust according to your design */
+  cursor: pointer;
 }
 
 /* Custom Checkbox Input */
 .custom-checkbox-input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
 }
 
 /* Custom Checkbox Checkmark */
 .custom-checkbox-checkmark {
-    position: absolute;
-    opacity: 0.5;
-    top: -15px;
-    left: 0;
-    height: 20px; /* Adjust according to your design */
-    width: 20px; /* Adjust according to your design */
-    border-radius: 4px; /* Adjust according to your design */
-    border: 2px solid var(--secondary-color);
-    // border: 2px solid var();
-    transition: background 0.3s ease; /* Smooth transition effect */
+  position: absolute;
+  opacity: 0.5;
+  top: -15px;
+  left: 0;
+  height: 20px; /* Adjust according to your design */
+  width: 20px; /* Adjust according to your design */
+  border-radius: 4px; /* Adjust according to your design */
+  border: 2px solid var(--secondary-color);
+  // border: 2px solid var();
+  transition: background 0.3s ease; /* Smooth transition effect */
 }
 
 /* Custom Checkmark Image */
 .custom-checkmark-image {
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 13px;
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 13px;
 }
 
 /* Style for Checked State */
 .custom-checkbox-input:checked + .custom-checkbox-checkmark {
-    background: var(--primary-color);
-    border: none!important;
-    opacity: 1;
+  background: var(--primary-color);
+  border: none !important;
+  opacity: 1;
 }
 
 /* Show the checkmark image when checked */
 .custom-checkbox-input:checked + .custom-checkbox-checkmark .custom-checkmark-image {
-    display: block;
+  display: block;
 }
 
 .disabled {
-    background: var(--disable-color-checkbox); /* Default gradient background color */
-    border: 2px solid#C8C5C5 !important;
+  background: var(--disable-color-checkbox); /* Default gradient background color */
+  border: 2px solid#C8C5C5 !important;
 }

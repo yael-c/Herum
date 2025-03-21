@@ -8,9 +8,8 @@ describe('HerumPdfViewerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HerumPdfViewerComponent ]
-    })
-    .compileComponents();
+      declarations: [HerumPdfViewerComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HerumPdfViewerComponent);
     component = fixture.componentInstance;

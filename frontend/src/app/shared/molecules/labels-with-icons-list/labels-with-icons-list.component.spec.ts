@@ -8,9 +8,8 @@ describe('LabelsWithIconsListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LabelsWithIconsListComponent ]
-    })
-    .compileComponents();
+      declarations: [LabelsWithIconsListComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(LabelsWithIconsListComponent);
     component = fixture.componentInstance;

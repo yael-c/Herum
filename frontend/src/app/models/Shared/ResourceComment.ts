@@ -1,5 +1,5 @@
 export type ResourceComment = {
-    publisherName: string;
-    content: string;
-    postTime: Date;
-}
+  publisherName: string;
+  content: string;
+  postTime: Date;
+};

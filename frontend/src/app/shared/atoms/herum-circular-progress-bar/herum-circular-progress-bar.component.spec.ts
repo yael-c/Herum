@@ -8,9 +8,8 @@ describe('HerumCircularProgressBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HerumCircularProgressBarComponent ]
-    })
-    .compileComponents();
+      declarations: [HerumCircularProgressBarComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HerumCircularProgressBarComponent);
     component = fixture.componentInstance;

@@ -2,14 +2,13 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TableService {
-
-  $onEdit: BehaviorSubject<string> = new BehaviorSubject<string>("");
+  $onEdit: BehaviorSubject<string> = new BehaviorSubject<string>('');
   $currentHoveredRowIndex: BehaviorSubject<number> = new BehaviorSubject<number>(-1);
 
-  constructor() { }
+  constructor() {}
 
   setCurrentHoveredRowIndex(index: number) {
     this.$currentHoveredRowIndex.next(index);

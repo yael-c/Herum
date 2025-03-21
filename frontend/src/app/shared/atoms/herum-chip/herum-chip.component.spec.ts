@@ -8,9 +8,8 @@ describe('HerumChipComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HerumChipComponent ]
-    })
-    .compileComponents();
+      declarations: [HerumChipComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HerumChipComponent);
     component = fixture.componentInstance;

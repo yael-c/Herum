@@ -8,9 +8,8 @@ describe('KeyValueListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ KeyValueListComponent ]
-    })
-    .compileComponents();
+      declarations: [KeyValueListComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(KeyValueListComponent);
     component = fixture.componentInstance;

@@ -46,13 +46,13 @@ export class HomeLayoutComponent implements OnInit {
             userBasicDetails: this.graphqlService.fetchData<
                 { getUserBasicDetails: BasicUserDetails },
                 BasicUserDetails
-            >('/graphql', HomePageQueries.GET_USER_BASIC_DETAILS),
+            >('', HomePageQueries.GET_USER_BASIC_DETAILS),
             collections: this.graphqlService.fetchData<
                 { subscribedCollections: CollectionSubscription[] },
                 {
                     subscribedCollections: CollectionSubscription[];
                 }
-            >('/graphql', HomePageQueries.GET_USER_COLLECTIONS_SUBSCRIPTIONS),
+            >('', HomePageQueries.GET_USER_COLLECTIONS_SUBSCRIPTIONS),
 
             // todo: fetch the data from the server, if existed
             // educationStatuses: this.graphqlService.fetchData<{ educationStatuses: EducationStatus[] }, {
@@ -62,11 +62,11 @@ export class HomeLayoutComponent implements OnInit {
             userPersonalGeneralDetails: this.graphqlService.fetchData<
                 { getUserPersonalGeneralDetails: UserPersonalGeneralDetailsResponse },
                 { getUserPersonalGeneralDetails: UserPersonalGeneralDetailsResponse }
-            >('/graphql', HomePageQueries.GET_USER_GENERAL_DETAILS),
+            >('', HomePageQueries.GET_USER_GENERAL_DETAILS),
             userProfileInfo: this.graphqlService.fetchData<
                 { getUserProfileInfo: UserProfileInfo },
                 UserProfileInfo
-            >('/graphql', HomePageQueries.GET_USER_PROFILE_INFO),
+            >('', HomePageQueries.GET_USER_PROFILE_INFO),
         }).subscribe({
             next: ({
                        userBasicDetails,

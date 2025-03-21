@@ -24,6 +24,10 @@ export interface User {
     subscribedCollections: CollectionSubscription[];
 }
 
+export interface UserData {
+    user: User
+}
+
 export interface UserAssignment {
     structPreview: StructPreview;
     assignmentMetadata: AssignmentMetadata;
@@ -88,45 +92,6 @@ export interface Collection {
     isDeleted: boolean;
     topics: string[];
 }
-
-//
-//
-// export interface ResourceComment {
-//     PublisherName: string;
-//     Content: string;
-//     PostTime: Date;
-// }
-//
-// export interface QuizData {
-//     MinGrade: number;
-//     ResourceName: string;
-//     Questions: Question[];
-//     AttemptsCount: number;
-//     IsSubmitted: boolean;
-//     UserAnswers: QuizUserAnswer[];
-//     CurrentQuestion: number;
-//     Grade: number;
-// }
-//
-// export interface Question {
-//     Id: string;
-//     Content: string;
-//     Index: number;
-//     IsSkipped: boolean;
-//     Answers: Answer[];
-// }
-//
-// export interface Answer {
-//     Id: string;
-//     Content: string;
-//     IsCorrect: boolean;
-// }
-
-// export interface QuizUserAnswer {
-//     QuestionId: string;
-//     AnswerIds: string[];
-//     Status?: boolean;
-// }
 
 export interface UserPreview {
     id: string;

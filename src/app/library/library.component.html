@@ -3,57 +3,37 @@
         <h2>ספרייה</h2>
     </div>
 
-    <!-- User's Subscribed Collections -->
-    <div class="collections-section">
-        <div class="section-title">מארזי הלמידה בבעלותי</div>
-
-        <div class="collections-list" *ngIf="!loading; else loadingTemplate">
-            <div class="collection-card" *ngFor="let collection of subscribedCollections">
-                <div class="card-image">
-                    <img [src]="collection?.imageUrl || 'assets/default-collection.jpg'" alt="collection cover">
-                    <!-- Topic tags now on the image -->
-                    <div class="topic-chips" *ngIf="collection.topics && collection.topics.length > 0">
-                        <span class="topic-tag" *ngFor="let topic of collection.topics">{{ topic }}</span>
-                    </div>
-                </div>
-                <div class="card-content">
-                    <h3 class="collection-title">{{ collection.name }}</h3>
-                    <p class="description">{{ collection.description }}</p>
-                    <div class="details">
-                        <div class="stats-row">
-                            <div class="resources-count">
-                                <i class="fa fa-book"></i>
-                                <span>{{ 0 }} משאבים</span>
-                            </div>
-                            <div class="hours-count">
-                                <i class="fa fa-clock"></i>
-                                <span>0 שעות</span>
-                            </div>
-                        </div>
-                        <button class="view-btn">נהל מארזי למידה</button>
-                    </div>
-                </div>
-            </div>
+    <div class="search-create-row">
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="חיפוש מארזי למידה...">
+            <button class="search-button">
+                <i class="fa fa-search"></i>
+            </button>
         </div>
+        <button class="create-collection-btn">
+            <i class="fa fa-plus"></i>
+            יצירת מארז למידה חדש
+        </button>
     </div>
 
-    <!-- All Collections -->
+    <!-- User's Subscribed Collections -->
     <div class="collections-section">
-        <div class="section-title-row">
-            <div class="section-title">קטלוג מאגרי למידה</div>
-            <div class="filters">
-                <ng-container *ngFor="let topic of topics; index as i">
-                    <button class="{{(i === selectedTopicIndex ? 'filter-btn active' : 'filter-btn')}}"
-                            (click)="filterCategory(i)">{{ topic }}
-                    </button>
-                </ng-container>
+        <div class="section-title-container">
+            <div class="section-title">מארזי הלמידה בבעלותי</div>
+            <div class="navigation-buttons">
+                <button class="nav-button prev-button">
+                    <i class="fa fa-chevron-right"></i>
+                </button>
+                <button class="nav-button next-button">
+                    <i class="fa fa-chevron-left"></i>
+                </button>
             </div>
         </div>
 
-        <div class="collections-list" *ngIf="!loading; else loadingTemplate">
-            <ng-container *ngFor="let collection of allCollections">
-                <ng-container *ngIf="isTopicSelected(collection)">
-                    <div class="collection-card">
+        <div class="collections-carousel-container">
+            <div class="collections-list-wrapper">
+                <div class="collections-list" *ngIf="!loading; else loadingTemplate">
+                    <div class="collection-card" *ngFor="let collection of subscribedCollections">
                         <div class="card-image">
                             <img [src]="collection?.imageUrl || 'assets/default-collection.jpg'" alt="collection cover">
                             <!-- Topic tags now on the image -->
@@ -63,8 +43,7 @@
                         </div>
                         <div class="card-content">
                             <h3 class="collection-title">{{ collection.name }}</h3>
-                            <span class="description">{{ collection.description }}</span>
-                            <span class="creating-user"> נוצר ע"י: {{ collection.creatingUser?.firstName }} {{ collection.creatingUser?.lastName }}</span>
+                            <p class="description">{{ collection.description }}</p>
                             <div class="details">
                                 <div class="stats-row">
                                     <div class="resources-count">
@@ -76,12 +55,74 @@
                                         <span>0 שעות</span>
                                     </div>
                                 </div>
-                                <button class="view-btn">התחל הכשרה</button>
+                                <button class="view-btn">נהל מארזי למידה</button>
                             </div>
                         </div>
                     </div>
-                </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- All Collections -->
+    <div class="collections-section">
+        <div class="section-title-row">
+            <div class="section-title">קטלוג מאגרי למידה</div>
+            <div class="navigation-buttons">
+                <button class="nav-button prev-button">
+                    <i class="fa fa-chevron-right"></i>
+                </button>
+                <button class="nav-button next-button">
+                    <i class="fa fa-chevron-left"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn" [class.active]="selectedTopicIndex === -1" (click)="filterCategory(-1)">הכל</button>
+            <ng-container *ngFor="let topic of topics; index as i">
+                <button class="{{(i === selectedTopicIndex ? 'filter-btn active' : 'filter-btn')}}"
+                        (click)="filterCategory(i)">{{ topic }}
+                </button>
             </ng-container>
+        </div>
+
+        <div class="collections-carousel-container">
+            <div class="collections-list-wrapper">
+                <div class="collections-list" *ngIf="!loading; else loadingTemplate">
+                    <ng-container *ngFor="let collection of allCollections">
+                        <ng-container *ngIf="isTopicSelected(collection)">
+                            <div class="collection-card">
+                                <div class="card-image">
+                                    <img [src]="collection?.imageUrl || 'assets/default-collection.jpg'" alt="collection cover">
+                                    <!-- Topic tags now on the image -->
+                                    <div class="topic-chips" *ngIf="collection.topics && collection.topics.length > 0">
+                                        <span class="topic-tag" *ngFor="let topic of collection.topics">{{ topic }}</span>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <h3 class="collection-title">{{ collection.name }}</h3>
+                                    <span class="description">{{ collection.description }}</span>
+                                    <span class="creating-user"> נוצר ע"י: {{ collection.creatingUser?.firstName }} {{ collection.creatingUser?.lastName }}</span>
+                                    <div class="details">
+                                        <div class="stats-row">
+                                            <div class="resources-count">
+                                                <i class="fa fa-book"></i>
+                                                <span>{{ 0 }} משאבים</span>
+                                            </div>
+                                            <div class="hours-count">
+                                                <i class="fa fa-clock"></i>
+                                                <span>0 שעות</span>
+                                            </div>
+                                        </div>
+                                        <button class="view-btn">התחל הכשרה</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </ng-container>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Output} from '@angular/core';
-import {FormBuilder, Validators} from '@angular/forms';
+import {FormBuilder, ValidationErrors, Validators} from '@angular/forms';
 import {SignUpData} from 'src/app/models/Internal/SignUpData';
 import {Router} from '@angular/router';
 import {AuthService} from '../../../shared/services/auth.service';
@@ -34,26 +34,19 @@ export class SignUpComponent {
         },
     ];
 
-    selectedOption: string = '';
-
     constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) {
     }
 
     updateUserType(x: any) {
         this.signUpForm.controls.userType.patchValue(x);
-        console.log(this.signUpForm.value)
     }
 
     _onSubmit() {
         this.signUpForm.markAllAsTouched();
-        console.log("onsubmit sign up")
-        console.log(this.selectedOption)
         if (this.signUpForm.valid) {
             const formData = this.signUpForm.value;
-            console.log(formData)
             this.authService.signUp(formData).subscribe({
                 next: (response) => {
-                    console.log('sign up successful', response);
                     this.onSignUp.emit(formData as any);
                     this.goToHomePage();
                 },
@@ -62,11 +55,16 @@ export class SignUpComponent {
                 }
             });
         }
-        console.log(this.signUpForm.value)
-        this.onSignUp.emit(this.signUpForm.value as any);
     }
 
     goToHomePage() {
         this.router.navigate(['/homepage']);
+    }
+
+    getErrorMessage(errors: ValidationErrors | null): string {
+        if (!errors) return '';
+        if (errors['required']) return 'שדה חובה';
+        if (errors['pattern']) return 'שדה לא תקין';
+        return 'שגיאה';
     }
 }

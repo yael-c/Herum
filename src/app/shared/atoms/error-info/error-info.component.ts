@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {ValidationErrors} from "@angular/forms";
 
 @Component({
   selector: 'app-error-info',
@@ -7,7 +8,8 @@ import {Component, Input} from '@angular/core';
 })
 export class ErrorInfoComponent {
 
-  @Input() errors: any;
+  @Input() errors: ValidationErrors | null = null;
   @Input() touched: boolean = false;
+  @Input() dirty: boolean = false;
 
 }

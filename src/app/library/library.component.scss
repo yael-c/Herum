@@ -1,9 +1,13 @@
+$primary-color: #26b68d;
+
 .library-container {
   padding: 20px;
   max-width: 100%;
 }
 
 .section-header {
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 20px;
 
   .sub-header {
@@ -63,7 +67,7 @@
     height: 40px;
     border: 4px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
-    border-top: 4px solid #6341ef;
+    border-top: 4px solid $primary-color;
     animation: spin 1s linear infinite;
   }
 
@@ -95,4 +99,65 @@
   border-color: #bfbfbf !important;
   color: #808080 !important;
   cursor: not-allowed !important;
+}
+
+
+.search-create-row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+
+  .search-container {
+    position: relative;
+    width: 300px;
+
+    .search-input {
+      width: 100%;
+      padding: 10px 40px 10px 15px;
+      border: 1px solid #e0e0e0;
+      border-radius: 25px;
+      font-size: 14px;
+
+      &:focus {
+        outline: none;
+        border-color: $primary-color;
+      }
+    }
+
+    .search-button {
+      position: absolute;
+      left: 5px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: $primary-color;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  }
+
+  .create-collection-btn {
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    i {
+      font-size: 12px;
+    }
+
+    &:hover {
+      background-color: darken($primary-color, 5%);
+    }
+  }
 }

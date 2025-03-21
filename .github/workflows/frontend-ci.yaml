@@ -34,5 +34,5 @@ jobs:
 
       - name: Run Build
         run: |
-          cd frontend-kli1
+          cd frontend
           pnpm run build:dev

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Collection, CollectionPreview } from '../../types';
+import { Collection } from '../../../models/Collection/Collection'
+import { CollectionPreview } from '../../../models/Previews/CollectionPreview'
 
 @Component({
   selector: 'app-collection-card',
@@ -20,7 +21,7 @@ export class CollectionCardComponent implements OnInit {
 
   get resourceCount() {
     if (!isCollection(this.collection)) return '?';
-    return this.collection.resources.length;
+    return this.collection?.resources?.length;
   }
 
   onImageError(event: Event) {

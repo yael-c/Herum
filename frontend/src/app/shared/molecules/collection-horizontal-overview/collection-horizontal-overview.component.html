@@ -2,10 +2,7 @@
   <div class="flex-4 title-container">
     <div
       class="image-container"
-      [ngStyle]="{
-        'background-image': 'url(' + collectionSubscription.collectionPreview.imageUrl + ')',
-      }"
-    ></div>
+      [ngStyle]="{'background-image': 'url(' + collectionSubscription.collectionPreview.imageUrl + ')'}"></div>
     <!-- <img [src]="collectionSubscription.collectionPreview.imageUrl" alt="collectionImage" /> -->
     {{ collectionSubscription.collectionPreview.name }}
   </div>

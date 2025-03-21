@@ -3,3 +3,5 @@ package.json
 .angular
 node_modules
 src/assets
+**/collection-horizontal-overview.component.html
+**/narrow-collection-menu.component.html

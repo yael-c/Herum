@@ -4,10 +4,7 @@
     *ngFor="let lesson of selectedCollection.resourceSubscriptions"
     (click)="_onSelectResource(lesson)"
     class="lesson-item"
-    [ngClass]="{
-      'current-lesson': lesson.positionInCollection == selectedResource?.positionInCollection,
-    }"
-  >
+    [ngClass]="{'current-lesson': lesson.positionInCollection == selectedResource?.positionInCollection}">
     <span>{{ lesson.positionInCollection }}</span>
   </div>
 </div>

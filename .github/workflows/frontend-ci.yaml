@@ -35,4 +35,4 @@ jobs:
       - name: Run Build
         run: |
           cd frontend
-          pnpm run build:dev
+          npm run build:dev

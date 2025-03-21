@@ -1,8 +1,8 @@
-<ng-container *ngIf="touched && errors!==null">
-    <span *ngIf="errors['required']">
+<ng-container *ngIf="(touched || dirty) && errors!==null">
+    <span class="error-msg" *ngIf="errors['required']">
         שדה חובה
     </span>
-    <span *ngIf="errors['pattern']">
+    <span class="error-msg" *ngIf="errors['pattern']">
         שדה לא תקין
     </span>
 </ng-container>

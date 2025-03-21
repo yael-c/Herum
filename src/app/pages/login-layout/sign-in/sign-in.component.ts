@@ -27,20 +27,17 @@ export class SignInComponent implements OnInit {
 
     _onSubmit() {
         this.loginForm.markAllAsTouched();
-        if (this.loginForm.valid) {
-            const formData = this.loginForm.value;
-            console.log(formData)
-            this.authService.login(formData).subscribe({
-                next: () => {
-                    this.onSignIn.emit(formData as any);
-                    this.goToHomePage();
-                },
-                error: (error) => {
-                    console.error('Login failed', error);
-                }
-            });
-        }
-        this.onSignIn.emit(this.loginForm.value as any);
+        if (!this.loginForm.valid) return;
+        const formData = this.loginForm.value;
+        this.authService.login(formData).subscribe({
+            next: () => {
+                this.onSignIn.emit(formData as any);
+                this.goToHomePage();
+            },
+            error: (error) => {
+                console.error('Login failed', error);
+            }
+        });
     }
 
     goToHomePage() {

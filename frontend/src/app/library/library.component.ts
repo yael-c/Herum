@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LibraryQueries } from '../shared/services/graphql-queries';
-import { User, UserData, Collection, CollectionPreview } from './types';
+import { CollectionPreview } from '../models/Previews/CollectionPreview';
+import { Collection } from '../models/Collection/Collection';
+import { UserData } from '../models/User/UserData';
 import { GraphqlGeneralService } from '../shared/services/graph-ql.service';
 import { finalize, forkJoin } from 'rxjs';
 

@@ -15,19 +15,6 @@ export type Collection = {
   creationTime?: Date;
   certificateLevel?: CertificateLevel;
   isDelete?: boolean;
+  topics: string[];
+  imageUrl?: string;
 };
-
-// export interface Collection {
-//   id?: string;
-//   name?: string;
-//   description?: string;
-//   imageUrl?: string;
-//   creatingUser?: UserPreview;
-//   resources: ResourcePreview[];
-//   isPublic: boolean;
-//   lastUpdateTime: Date;
-//   creationTime: Date;
-//   certificateLevel: string;
-//   isDeleted?: boolean;
-//   topics: string[];
-// }

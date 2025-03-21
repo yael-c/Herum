@@ -1,8 +1,6 @@
 .library-container {
   padding: 20px;
-  font-family: 'Heebo', sans-serif; /* Use appropriate Hebrew font */
-  //max-width: 1200px;
-  //margin: 0 auto;
+  font-family: 'Heebo', sans-serif;
   max-width: 100%;
 }
 
@@ -40,6 +38,7 @@
 .filters {
   display: flex;
   gap: 10px;
+  margin-bottom: 20px;
 
   .filter-btn {
     background: transparent;
@@ -49,14 +48,25 @@
     font-size: 14px;
     cursor: pointer;
     transition: all 0.2s;
+    position: relative;
 
     &.active {
-      background: #6341ef;
-      color: white;
+      color: #6341ef;
+      font-weight: bold;
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: #6341ef;
+      }
     }
 
     &:hover:not(.active) {
-      background: #f0f0f0;
+      color: #6341ef;
     }
   }
 }
@@ -64,7 +74,6 @@
 .collections-list {
   display: flex;
   flex-wrap: wrap;
-  overflow-x: auto;
   gap: 20px;
   padding: 10px 0;
 
@@ -108,15 +117,23 @@
       object-fit: cover;
     }
 
-    .resources-count {
+    .topic-chips {
       position: absolute;
       bottom: 8px;
       right: 8px;
-      background: rgba(225, 255, 255, 0.7);
-      color: white;
-      padding: 3px 8px;
-      border-radius: 12px;
-      font-size: 12px;
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+      z-index: 2;
+
+      .topic-tag {
+        background: rgba(255, 255, 255, 0.8);
+        color: #333;
+        padding: 2px 8px;
+        border-radius: 10px;
+        font-size: 12px;
+        white-space: nowrap;
+      }
     }
   }
 
@@ -144,18 +161,29 @@
       height: 40px;
     }
 
-    .details {
-      .topics {
-        display: flex;
-        gap: 5px;
-        flex-wrap: wrap;
+    .creating-user {
+      font-size: 12px;
+      color: #888;
+      display: block;
+      margin-bottom: 10px;
+    }
 
-        .topic-tag {
-          background: #f0f0f0;
-          padding: 2px 8px;
-          border-radius: 10px;
-          font-size: 12px;
-          white-space: nowrap;
+    .details {
+      .stats-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        font-size: 12px;
+        color: #555;
+
+        .resources-count, .hours-count {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+
+          i {
+            color: #6341ef;
+          }
         }
       }
 
@@ -164,9 +192,10 @@
         background: transparent;
         border: 1px solid #6341ef;
         color: #6341ef;
-        padding: 5px 10px;
+        padding: 6px 10px;
         border-radius: 5px;
         transition: all 0.2s;
+        font-weight: 500;
 
         &:hover {
           background: #6341ef;
@@ -202,16 +231,4 @@
     margin-top: 15px;
     color: #666;
   }
-}
-
-.topic-cover-image {
-  background-size: cover;
-  img {
-    display: block;
-    width: 100%;
-  }
-}
-
-.topic-chips {
-  border: 1px solid red;
 }

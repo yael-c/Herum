@@ -1,12 +1,12 @@
 <div class="input-container">
     <input 
         class="w-100"
-        [ngClass]="{'error-input':!isValid && touched && isBlured}"
+        [ngClass]="{'error-input':!isValid && dirty && isBlurred}"
         [placeholder]="placeholder" 
         [disabled]="disabled"
         [value]="inputValue"
         (input)="onInput($event)"
-        (blur)="setBlured()"
+        (blur)="setTouched()"
         [type]="type"
         [attr.formControlName]="formControlName" />
     
@@ -24,7 +24,7 @@
     </span>
 </div>
 <label class="error-msg right">
-    <ng-container *ngIf="!isValid && touched && isBlured">
+    <ng-container *ngIf="!isValid && (dirty || touched)">
         {{errorMsg}}
     </ng-container>
 </label>

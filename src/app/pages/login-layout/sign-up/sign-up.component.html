@@ -10,15 +10,15 @@
         <div class="w-50">
             <label class="input-title" for="firstName">שם פרטי</label>
             <herum-input-field [type]="'text'" [formControlName]="'FirstName'"
-                               [errorMsg]="'שדה חובה למילוי'"></herum-input-field>
-            <app-error-info [errors]="signUpForm.controls.FirstName.errors" [touched]="signUpForm.controls.FirstName.touched"></app-error-info>
+                               [isValid]="!signUpForm.controls.FirstName.errors"
+                               [errorMsg]="getErrorMessage(signUpForm.controls.FirstName.errors)"></herum-input-field>
         </div>
 
         <div class="w-50">
             <label class="input-title" for="lastName">שם משפחה</label>
             <herum-input-field [type]="'text'" [formControlName]="'LastName'"
-                               [errorMsg]="'שדה חובה למילוי'"></herum-input-field>
-            <app-error-info [errors]="signUpForm.controls.LastName.errors" [touched]="signUpForm.controls.LastName.touched"></app-error-info>
+                               [isValid]="!signUpForm.controls.LastName.errors"
+                               [errorMsg]="getErrorMessage(signUpForm.controls.LastName.errors)"></herum-input-field>
         </div>
 
     </div>
@@ -26,30 +26,32 @@
     <div>
         <label class="input-title" for="PersonalId">תעודת זהות</label>
         <herum-input-field [type]="'number'" [formControlName]="'PersonalId'"
-                           [errorMsg]="'תעודת זהות לא תקינה'"></herum-input-field>
-        <app-error-info [errors]="signUpForm.controls.PersonalId.errors" [touched]="signUpForm.controls.PersonalId.touched"></app-error-info>
+                           [isValid]="!signUpForm.controls.PersonalId.errors"
+                           [errorMsg]="getErrorMessage(signUpForm.controls.PersonalId.errors)"></herum-input-field>
     </div>
 
     <div>
         <label class="input-title" for="MilitaryId">מספר אישי</label>
         <herum-input-field [type]="'number'" [formControlName]="'MilitaryId'"
-                           [errorMsg]="'שדה חובה למילוי'"></herum-input-field>
-        <app-error-info [errors]="signUpForm.controls.MilitaryId.errors" [touched]="signUpForm.controls.MilitaryId.touched"></app-error-info>
+                           [isValid]="!signUpForm.controls.MilitaryId.errors"
+                           [errorMsg]="getErrorMessage(signUpForm.controls.MilitaryId.errors)"></herum-input-field>
     </div>
 
     <div>
         <herum-radio-button [options]="options" (selectOptionEmitter)="updateUserType($event)"></herum-radio-button>
-        <app-error-info [errors]="signUpForm.controls.userType.errors" [touched]="signUpForm.controls.userType.touched"></app-error-info>
+        <app-error-info [errors]="signUpForm.controls.userType.errors"
+                        [touched]="signUpForm.controls.userType.touched"
+                        [dirty]="signUpForm.controls.userType.dirty"></app-error-info>
     </div>
 
     <div>
-        <label class="input-title" for="MilitaryId">למי הגעת?</label>
+        <label class="input-title" for="ReferringUser">למי הגעת?</label>
         <herum-input-field [type]="'text'" [formControlName]="'ReferringUser'"
-                           [errorMsg]="'שדה חובה למילוי'"></herum-input-field>
-        <app-error-info [errors]="signUpForm.controls.ReferringUser.errors" [touched]="signUpForm.controls.ReferringUser.touched"></app-error-info>
+                           [isValid]="!signUpForm.controls.ReferringUser.errors"
+                           [errorMsg]="getErrorMessage(signUpForm.controls.ReferringUser.errors)"></herum-input-field>
     </div>
 
-    <herum-button class="w-100 mt-2" (click)="_onSubmit()">הרשמה
+    <herum-button class="w-100 mt-2" (click)="_onSubmit()" [disabled]="signUpForm.invalid">הרשמה
         לאתר
     </herum-button>
 </form>

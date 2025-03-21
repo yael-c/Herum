@@ -1,3 +1,4 @@
-span {
-  color: #9e1f1f;
+.error-msg {
+  color: var(--error-color);
+  font-weight: bold;
 }

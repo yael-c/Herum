@@ -1,0 +1,41 @@
+<div class="card collection-card">
+  <div class="position-relative">
+    <img
+      [src]="collection?.imageUrl || 'assets/default-collection.jpg'"
+      alt="collection cover"
+      (error)="onImageError($event)"
+      class="card-img-top"
+    />
+    <div class="position-absolute bottom-0 end-0 p-2 d-flex gap-1 topics-tag-container">
+      <ng-container *ngIf="collection?.topics && collection?.topics?.length">
+        <ng-container *ngFor="let topic of collection?.topics">
+          <span class="topic-tag">{{ topic }}</span>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ collection.name }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">נוצר ע"י: {{ collectionCreator }}</h6>
+    <p class="card-text">
+      {{ collection.description }}
+    </p>
+    <div class="d-flex justify-content-evenly">
+      <span>
+        <span class="resources-info">
+          <i class="fa-regular fa-clock"></i>
+          40 שעות
+        </span>
+      </span>
+      <span>
+        <span class="resources-info">
+          <i class="fa-solid fa-lines-leaning"></i>
+          {{ resourceCount }} משאבים
+        </span>
+      </span>
+    </div>
+  </div>
+  <div>
+    <a href="#" class="w-100 btn btn-outline-dark" style="border-radius: 8px">{{ action }}</a>
+  </div>
+</div>

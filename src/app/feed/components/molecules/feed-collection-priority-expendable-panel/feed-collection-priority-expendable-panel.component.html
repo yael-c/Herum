@@ -1,6 +1,0 @@
-<div class="collection-priority-expendable-panel-container">
-    <p class="expendable-panel-title m-0" 
-        [ngClass]="{'open': isOpen, 'closed': !isOpen}"
-    (click)="isOpen = !isOpen">{{title}}</p>
-    <ng-content *ngIf="isOpen"></ng-content>
-</div>

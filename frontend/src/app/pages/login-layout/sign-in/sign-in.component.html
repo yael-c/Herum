@@ -1,0 +1,30 @@
+<form [formGroup]="loginForm" class="form-container">
+  <div>
+    <h3 class="m-0">התחברות</h3>
+    <p class="description m-0">שלום! אנא הכנס תעודת זהות ומספר איש על מנת להתחבר לעמוד הראשי שלך</p>
+  </div>
+
+  <div>
+    <label class="input-title" for="PersonalId">תעודת זהות</label>
+    <herum-input-field
+      [type]="'number'"
+      [formControlName]="'PersonalId'"
+      [isValid]="!loginForm.controls.PersonalId.errors"
+      [errorMsg]="getErrorMessage(loginForm.controls.PersonalId.errors)"
+    ></herum-input-field>
+  </div>
+
+  <div>
+    <label class="input-title" for="MilitaryId">מספר אישי</label>
+    <herum-input-field
+      [type]="'number'"
+      [formControlName]="'MilitaryId'"
+      [isValid]="!loginForm.controls.MilitaryId.errors"
+      [errorMsg]="getErrorMessage(loginForm.controls.MilitaryId.errors)"
+    ></herum-input-field>
+  </div>
+
+  <herum-button (click)="_onSubmit()" class="w-100 mt-2" [disabled]="loginForm.invalid"
+    >התחברות לאתר</herum-button
+  >
+</form>

@@ -1,0 +1,103 @@
+<div class="library-container" dir="rtl">
+  <div class="section-header">
+    <h2>ספרייה</h2>
+
+    <div class="search-create-row">
+      <button class="create-collection-btn">
+        <i class="fa fa-plus"></i>
+        יצירת מארז למידה חדש
+      </button>
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="חיפוש מארזי למידה..." />
+        <button class="search-button">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="collections-section">
+    <div class="section-title">מארזי הלמידה בבעלותי</div>
+    <div class="collections-list" *ngIf="!loading; else loadingTemplate">
+      <ng-container *ngFor="let collection of subscribedCollections">
+        <app-collection-card [collection]="collection"></app-collection-card>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="collections-section">
+    <div class="section-title-row">
+      <div class="section-title">קטלוג מאגרי למידה</div>
+      <div class="filters">
+        <ng-container *ngFor="let topic of topics; index as i">
+          <span
+            class="{{ i === selectedTopicIndex ? 'filter-btn active' : 'filter-btn' }}"
+            (click)="filterCategory(i)"
+          >
+            {{ topic }}
+          </span>
+        </ng-container>
+      </div>
+    </div>
+
+    <pagination-template
+      #p="paginationApi"
+      [id]="config.id"
+      (pageChange)="config.currentPage = $event"
+    >
+      <div class="custom-pagination">
+        <div class="d-flex justify-content-end">
+          <div class="d-flex gap-2">
+            <div class="pagination-previous">
+              <ng-container *ngIf="!p.isFirstPage(); else prevDisabled">
+                <a (click)="p.previous()">
+                  <button type="button" class="btn btn-outline-secondary">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                  </button>
+                </a>
+              </ng-container>
+              <ng-template #prevDisabled>
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary btn-disabled-extra opacity-50 bg-light"
+                >
+                  <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                </button>
+              </ng-template>
+            </div>
+
+            <div class="pagination-next">
+              <ng-container *ngIf="!p.isLastPage(); else nextDisabled">
+                <a (click)="p.next()">
+                  <button type="button" class="btn btn-outline-secondary">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                  </button>
+                </a>
+              </ng-container>
+              <ng-template #nextDisabled>
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary btn-disabled-extra opacity-50 bg-light"
+                >
+                  <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                </button>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+    </pagination-template>
+    <div class="collections-list" *ngIf="!loading; else loadingTemplate">
+      <ng-container *ngFor="let collection of filteredCollections | paginate: config">
+        <app-collection-card [collection]="collection"></app-collection-card>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+<ng-template #loadingTemplate>
+  <div class="loading-container">
+    <div class="spinner"></div>
+    <p>טוען אוספים...</p>
+  </div>
+</ng-template>

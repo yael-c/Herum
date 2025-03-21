@@ -7,7 +7,9 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "dev": "node --max-old-space-size=4096 ./node_modules/@angular/cli/bin/ng s"
+    "dev": "node --max-old-space-size=4096 ./node_modules/@angular/cli/bin/ng s",
+    "format": "prettier --write \"src/**/*.{ts,html,scss}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,html,scss}\""
   },
   "private": true,
   "dependencies": {
@@ -38,6 +40,7 @@
     "ng2-pdf-viewer": "^9.1.5",
     "ngx-chips": "^3.0.0",
     "ngx-extended-pdf-viewer": "^15.0.1",
+    "ngx-pagination": "^6.0.3",
     "ngx-quill": "^16.2.1",
     "ngx-webrtc": "^0.2.4",
     "pdfjs-dist": "^2.16.105",
@@ -61,6 +64,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
+    "prettier": "^3.5.3",
     "typescript": "~4.7.2"
   }
 }

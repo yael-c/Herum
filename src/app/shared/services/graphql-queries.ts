@@ -1,7 +1,6 @@
 export class HomePageQueries {
-
-    // todo: if the field 'rank' was stored in the server, i would add it here too
-    public static GET_USER_BASIC_DETAILS = `
+  // todo: if the field 'rank' was stored in the server, i would add it here too
+  public static GET_USER_BASIC_DETAILS = `
         query {
             user {
                 personalId
@@ -12,7 +11,7 @@ export class HomePageQueries {
         }
     `;
 
-    public static GET_USER_GENERAL_DETAILS = `
+  public static GET_USER_GENERAL_DETAILS = `
         query {
             user {
                 phoneNumber
@@ -22,7 +21,7 @@ export class HomePageQueries {
         }
     `;
 
-    public static GET_USER_COLLECTIONS_SUBSCRIPTIONS = `
+  public static GET_USER_COLLECTIONS_SUBSCRIPTIONS = `
         query {
             user {
                 subscribedCollections {
@@ -56,7 +55,7 @@ export class HomePageQueries {
         }
     `;
 
-    public static GET_USER_PROFILE_INFO = `
+  public static GET_USER_PROFILE_INFO = `
         query {
             user {
                 firstName
@@ -67,10 +66,8 @@ export class HomePageQueries {
     `;
 }
 
-
 export class LibraryQueries {
-    // Query to get the current user with their subscribed collections
-    public static GET_CURRENT_USER = `
+  public static GET_CURRENT_USER_SUBSCRIPTIONS = `
       query GetCurrentUser {
         user {
           id
@@ -99,9 +96,9 @@ export class LibraryQueries {
       }
     `;
 
-    // Query to get all collections
-    // todo add imageUrl in the missing line - does not exist in the server
-    public static GET_ALL_COLLECTIONS = `
+  // Query to get all collections
+  // todo add imageUrl in the missing line - does not exist in the server
+  public static GET_ALL_COLLECTIONS = `
       query GetAllCollections {
         collections {
           id
@@ -128,8 +125,7 @@ export class LibraryQueries {
       }
     `;
 
-    // Query to get collections by topic
-    public static GET_COLLECTIONS_BY_TOPIC = `
+  public static GET_COLLECTIONS_BY_TOPIC = `
       query GetCollectionsByTopic($topic: String) {
         collections(where: { topics_contains: $topic }) {
           Id
@@ -151,8 +147,7 @@ export class LibraryQueries {
       }
     `;
 
-    // Query to get a single collection by ID
-    public static GET_COLLECTION_BY_ID = `
+  public static GET_COLLECTION_BY_ID = `
       query GetCollectionById($id: ID!) {
         collections(where: { id: { eq: $id } }) {
           Id

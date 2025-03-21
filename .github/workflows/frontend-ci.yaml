@@ -1,0 +1,38 @@
+name: frontend-ci
+
+on:
+  push:
+    branches: ['master', 'dev']
+    paths:
+      - 'frontend/**'
+      - '.github/workflows/frontend-ci.yml'
+  pull_request:
+    paths:
+      - 'frontend/**'
+      - '.github/workflows/frontend-ci.yml'
+    branches: ['master', 'dev']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use the latest stable Node.js
+        uses: actions/setup-node@v4
+
+      - name: Install Dependencies
+        run: |
+          cd frontend   
+          npm ci
+
+      - name: Check Formatting
+        run: |
+          cd frontend
+          npm run format:check
+
+      - name: Run Build
+        run: |
+          cd frontend-kli1
+          pnpm run build:dev
